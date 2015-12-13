@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Sun Dec 13 01:58:00 2015 Antoine Baché
+## Last update Sun Dec 13 02:26:02 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -13,7 +13,7 @@ SRC=		src/main.c			\
 		src/menu/main_menu_actions.c	\
 		src/menu/main_menu.c
 
-NAME=		wolf_3d
+NAME=		wolf3d
 
 HEAD=		-Iinclude
 

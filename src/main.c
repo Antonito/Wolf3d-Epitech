@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Sun Dec 13 01:53:19 2015 Antoine Baché
+** Last update Sun Dec 13 02:21:51 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -31,7 +31,7 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
-  /* bunny_sound_volume(menu->music, 20);*/
+  bunny_sound_volume(menu->music, 20);
   draw_menu(menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
@@ -46,16 +46,16 @@ int		main_menu()
   if ((menu = bunny_malloc(sizeof(t_main_menu))) == NULL)
     return (1);
   else if ((menu->win = bunny_start(WIN_X, WIN_Y, 0, "Wolf3D")) == NULL)
-    return (1);
+    return (ERROR_MAIN_WIN);
   else if ((menu->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) == NULL)
-    return (1);
+    return (ERROR_MAIN_PIX);
+  else if ((menu->music = bunny_load_music("music/main.ogg")) == NULL)
+    return (ERROR_MAIN_MUSIC);
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
-/*  if ((menu->music = bunny_load_music("music/fire.ogg")) == NULL)
-    return (-1);*/
   menu->select = 1;
   bunny_loop(menu->win, 60, menu);
-  /*bunny_delete_sound(menu->music);*/
+  bunny_delete_sound(menu->music);
   bunny_stop(menu->win);
   bunny_delete_clipable(&menu->pix->clipable);
   bunny_free(menu);

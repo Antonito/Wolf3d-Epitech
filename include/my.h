@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 13 01:59:03 2015 Antoine Baché
+** Last update Sun Dec 13 02:20:27 2015 Antoine Baché
 */
 
 
@@ -17,6 +17,9 @@
 # define MAIN_TITLE 150
 # define SPACE_TITLE 25
 # define SUB_TITLE 125
+# define ERROR_MAIN_WIN free_on_winerror(menu)
+# define ERROR_MAIN_PIX free_on_pixerror(menu)
+# define ERROR_MAIN_MUSIC free_on_musicerror(menu)
 
 # include <stdlib.h>
 # include <lapin.h>
@@ -41,6 +44,7 @@ int			main_menu(void);
 */
 int			free_on_winerror(t_main_menu *);
 int			free_on_pixerror(t_main_menu *);
+int			free_on_musicerror(t_main_menu *);
 
 /*
 ** Draw Main Menu functions (/menu/main_menu.c)
