@@ -5,11 +5,18 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Sun Dec 13 02:26:02 2015 Antoine Baché
+## Last update Tue Dec 15 00:41:35 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
 		src/free_main.c			\
+		src/load_bmp.c			\
+		src/wolf/wolf.c			\
+		src/wolf/minimap.c		\
+		src/menu/pause_menu.c		\
+		src/menu/option.c		\
+		src/menu/option_menu.c		\
+		src/menu/option_menu_actions.c	\
 		src/menu/main_menu_actions.c	\
 		src/menu/main_menu.c
 

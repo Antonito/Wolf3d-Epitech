@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 13 02:20:27 2015 Antoine Baché
+** Last update Tue Dec 15 00:18:30 2015 Antoine Baché
 */
 
 
@@ -24,13 +24,30 @@
 # include <stdlib.h>
 # include <lapin.h>
 
+typedef struct		s_option_menu
+{
+  char			select;
+  char			music;
+}			t_option_menu;
+
 typedef	struct		s_main_menu
 {
   t_bunny_pixelarray	*pix;
   t_bunny_window	*win;
   t_bunny_music		*music;
   char			select;
+  t_option_menu		options;
 }			t_main_menu;
+
+/*
+** Minimap (minimap.c)
+*/
+void			display_minimap(t_main_menu *);
+
+/*
+** Load BMP images (load_bmp.c)
+*/
+unsigned long  		*load_bmp(void);
 
 /*
 ** Main menu functions (main.c)
@@ -59,5 +76,43 @@ void			draw_menu(t_main_menu *);
 ** Main Menu actions (/menu/main_menu_actions.c)
 */
 int			main_menu_actions(t_main_menu *);
+
+/*
+** Option menu (/menu/option.c)
+*/
+t_bunny_response	key_option(t_bunny_event_state,
+				   t_bunny_keysym, t_main_menu *);
+
+/*
+** Drawn options menu (/menu/option_menu.c)
+*/
+void			option_title(t_main_menu *);
+void			sub_option_titles(t_main_menu *);
+void			put_option_selector(t_main_menu *);
+void			draw_option_menu(t_main_menu *);
+
+/*
+** Option menu actions (/menu/option_menu_actions.c)
+*/
+int			option_menu_actions(t_main_menu *);
+t_bunny_response	OptionMenuLoop(t_main_menu *);
+int			option_menu(t_main_menu *);
+
+/*
+** Pause menu
+*/
+int			pause_menu(t_main_menu *);
+t_bunny_response	PauseMenuLoop(t_main_menu *);
+t_bunny_response	key_pause(t_bunny_event_state,
+				  t_bunny_keysym, t_main_menu *);
+
+/*
+** Wolf3D start (/wolf/wolf.c)
+*/
+t_bunny_response	key_wolf(t_bunny_event_state, t_bunny_keysym,
+				 t_main_menu *);
+void			set_to_black(t_main_menu *);
+t_bunny_response	wolfloop(t_main_menu *);
+int			wolf(t_main_menu *);
 
 #endif /* !MY_H_ */

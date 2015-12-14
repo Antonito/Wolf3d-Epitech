@@ -1,7 +1,7 @@
 Menu principal
      Jouer				OK
-     Options
-	Musique On/Off
+     Options				OK
+	Musique On/Off			OK
      Quitter				OK
 Menu pause
 	Gérer transparence !
@@ -9,4 +9,5 @@ Menu pause
      Quitter
 Musique menu				OK
 Bruit de pas
+Mini-map
 Partie Obligatoire

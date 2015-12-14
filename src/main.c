@@ -5,10 +5,11 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Sun Dec 13 02:21:51 2015 Antoine Baché
+** Last update Mon Dec 14 21:14:06 2015 Antoine Baché
 */
 
 #include "my.h"
+#include <stdio.h>
 
 t_bunny_response	key(t_bunny_event_state state,
 			    t_bunny_keysym key, t_main_menu *menu)
@@ -31,7 +32,7 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
-  bunny_sound_volume(menu->music, 20);
+  bunny_sound_volume(menu->music, 20 * menu->options.music);
   draw_menu(menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
@@ -54,6 +55,9 @@ int		main_menu()
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
   menu->select = 1;
+  menu->options.select = 1;
+  menu->options.music = 1;
+  printf("/*\n** Main Menu\n*/\n");
   bunny_loop(menu->win, 60, menu);
   bunny_delete_sound(menu->music);
   bunny_stop(menu->win);
