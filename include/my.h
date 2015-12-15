@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 15 00:18:30 2015 Antoine Baché
+** Last update Tue Dec 15 01:05:01 2015 Antoine Baché
 */
 
 
@@ -105,6 +105,19 @@ int			pause_menu(t_main_menu *);
 t_bunny_response	PauseMenuLoop(t_main_menu *);
 t_bunny_response	key_pause(t_bunny_event_state,
 				  t_bunny_keysym, t_main_menu *);
+
+/*
+** Draw pause menu (/menu/pause_menu_draw.c)
+*/
+void			pause_title(t_main_menu *);
+void			sub_pause_titles(t_main_menu *);
+void			put_pause_selector(t_main_menu *);
+void			draw_pause_menu(t_main_menu *);
+
+/*
+** Pause menu action (/menu/pause_menu_actions.c)
+*/
+int			pause_menu_actions(t_main_menu *);
 
 /*
 ** Wolf3D start (/wolf/wolf.c)

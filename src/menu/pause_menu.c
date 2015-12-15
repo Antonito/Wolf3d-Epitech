@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 21:34:34 2015 Antoine Baché
-** Last update Tue Dec 15 00:22:35 2015 Antoine Baché
+** Last update Tue Dec 15 01:14:57 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -18,9 +18,13 @@ t_bunny_response	key_pause(t_bunny_event_state state,
     menu->options.select--;
   else if (key == BKS_DOWN && state == GO_DOWN && menu->options.select < 2)
     menu->options.select++;
-  else if (key == BKS_RETURN && state == GO_DOWN &&
-	   option_menu_actions(menu) == 1)
-    return (EXIT_ON_SUCCESS);
+  else if (key == BKS_RETURN && state == GO_DOWN)
+    {
+      if (pause_menu_actions(menu) == 1)
+	return (EXIT_ON_SUCCESS);
+      else
+	// Modifier pointeur dans structure pour retour
+    }
   else if (key == BKS_ESCAPE && state == GO_DOWN)
     return (EXIT_ON_SUCCESS);
   return (GO_ON);
@@ -32,7 +36,7 @@ t_bunny_response	PauseMenuLoop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
-  draw_option_menu(menu);
+  draw_pause_menu(menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
   bunny_display(menu->win);
