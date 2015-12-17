@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Mon Dec 14 21:14:06 2015 Antoine Baché
+** Last update Wed Dec 16 18:07:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -55,6 +55,7 @@ int		main_menu()
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
   menu->select = 1;
+  menu->toggle_pause = 0;
   menu->options.select = 1;
   menu->options.music = 1;
   printf("/*\n** Main Menu\n*/\n");

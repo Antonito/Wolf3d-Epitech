@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 15 01:05:01 2015 Antoine Baché
+** Last update Thu Dec 17 13:57:42 2015 Antoine Baché
 */
 
 
@@ -22,7 +22,14 @@
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
 
 # include <stdlib.h>
+# include <unistd.h>
 # include <lapin.h>
+
+typedef struct		s_map_size
+{
+  int			width;
+  int			height;
+}			t_map_size;
 
 typedef struct		s_option_menu
 {
@@ -35,7 +42,11 @@ typedef	struct		s_main_menu
   t_bunny_pixelarray	*pix;
   t_bunny_window	*win;
   t_bunny_music		*music;
+  t_bunny_ini		*file;
+  t_map_size		map_size;
+  char			*map;
   char			select;
+  char			toggle_pause;
   t_option_menu		options;
 }			t_main_menu;
 
@@ -47,7 +58,7 @@ void			display_minimap(t_main_menu *);
 /*
 ** Load BMP images (load_bmp.c)
 */
-unsigned long  		*load_bmp(void);
+unsigned int  		*load_bmp(void);
 
 /*
 ** Main menu functions (main.c)
@@ -127,5 +138,16 @@ t_bunny_response	key_wolf(t_bunny_event_state, t_bunny_keysym,
 void			set_to_black(t_main_menu *);
 t_bunny_response	wolfloop(t_main_menu *);
 int			wolf(t_main_menu *);
+
+/*
+** Check_ini.c
+*/
+int			check_ini(t_main_menu *);
+int			check_field(t_main_menu *);
+int			load_ini(t_main_menu *);
+int			my_strlen_bis(char *);
+int			my_power_ten(int);
+int			my_is_neg(char *);
+int			my_getnbr(char *);
 
 #endif /* !MY_H_ */

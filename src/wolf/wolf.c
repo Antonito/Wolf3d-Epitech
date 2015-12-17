@@ -5,9 +5,8 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Tue Dec 15 00:40:21 2015 Antoine Baché
+** Last update Thu Dec 17 12:10:47 2015 Antoine Baché
 */
-
 
 #include "my.h"
 #include <stdio.h>
@@ -20,7 +19,6 @@ t_bunny_response	key_wolf(t_bunny_event_state state,
     return (EXIT_ON_SUCCESS);
   return (GO_ON);
 }
-
 
 void		set_to_black(t_main_menu *menu)
 {
@@ -39,6 +37,7 @@ t_bunny_response	wolfloop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
+  load_ini(menu);
   set_to_black(menu);
   display_minimap(menu);
   bunny_blit(&(menu->win->buffer),
