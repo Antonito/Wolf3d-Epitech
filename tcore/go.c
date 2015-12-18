@@ -5,10 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 10:39:21 2015 Antoine Baché
-** Last update Sun Dec 13 10:40:16 2015 Antoine Baché
+** Last update Fri Dec 18 22:15:34 2015 Antoine Baché
 */
 
 #include <lapin.h>
 
 void	go(t_bunny_position *curpos, double angle,
 	   t_bunny_position *newpos, int move)
+{
+  return ;
+}

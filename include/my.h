@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Thu Dec 17 13:57:42 2015 Antoine Baché
+** Last update Fri Dec 18 21:07:42 2015 Antoine Baché
 */
 
 
@@ -17,6 +17,9 @@
 # define MAIN_TITLE 150
 # define SPACE_TITLE 25
 # define SUB_TITLE 125
+# define SQUARE_SIZE 18
+# define MAP_X_OFFSET 2
+# define MAP_Y_OFFSET 400
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
@@ -25,10 +28,18 @@
 # include <unistd.h>
 # include <lapin.h>
 
+typedef struct		s_player
+{
+  int			posx;
+  int			posy;
+  double	       	angle;
+}			t_player;
+
 typedef struct		s_map_size
 {
   int			width;
   int			height;
+  int			tile;
 }			t_map_size;
 
 typedef struct		s_option_menu
@@ -44,10 +55,11 @@ typedef	struct		s_main_menu
   t_bunny_music		*music;
   t_bunny_ini		*file;
   t_map_size		map_size;
-  char			*map;
+  char			**map;
   char			select;
   char			toggle_pause;
   t_option_menu		options;
+  t_player		player;
 }			t_main_menu;
 
 /*
@@ -149,5 +161,19 @@ int			my_strlen_bis(char *);
 int			my_power_ten(int);
 int			my_is_neg(char *);
 int			my_getnbr(char *);
+void			load_map_info(t_main_menu *);
+
+/*
+** /wolf/display_wolf.c
+*/
+void			set_sky(t_main_menu *);
+void			display_wolf(t_main_menu *);
+
+/*
+** my_getdouble.c
+*/
+void			remove_comma(char *);
+double			my_getdouble(char *);
+int			my_power(int, int);
 
 #endif /* !MY_H_ */

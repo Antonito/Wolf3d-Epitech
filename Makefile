@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Thu Dec 17 13:58:13 2015 Antoine Baché
+## Last update Fri Dec 18 20:31:36 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -16,6 +16,8 @@ SRC=		src/main.c			\
 		src/wolf/check_ini.c		\
 		src/wolf/load_ini.c		\
 		src/wolf/my_getnbr.c		\
+		src/wolf/display_wolf.c		\
+		src/wolf/my_getdouble.c		\
 		src/menu/pause_menu.c		\
 		src/menu/pause_menu_draw.c	\
 		src/menu/pause_menu_actions.c	\
@@ -29,7 +31,9 @@ NAME=		wolf3d
 
 HEAD=		-Iinclude
 
-CC=		gcc $(HEAD) -W -Wall -Werror -ansi -pedantic
+CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic -g
+
+CC=		gcc
 
 RM=		rm -f
 
@@ -47,7 +51,7 @@ LIB=		-L/usr/local/lib		\
 OBJ=		$(SRC:.c=.o)
 
 $(NAME):	$(OBJ)
-		$(CC) $(OBJ) -o $(NAME) $(LIB)
+		$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
 
 all:		$(NAME)
 

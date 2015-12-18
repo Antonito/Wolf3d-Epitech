@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Thu Dec 17 12:10:47 2015 Antoine Baché
+** Last update Fri Dec 18 21:19:54 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -28,7 +28,7 @@ void		set_to_black(t_main_menu *menu)
   i = -1;
   colors = menu->pix->pixels;
   while (++i < WIN_X * WIN_Y)
-    colors[i].full = 0;
+    colors[i].full = PINK;
 }
 
 t_bunny_response	wolfloop(t_main_menu *menu)
@@ -37,8 +37,8 @@ t_bunny_response	wolfloop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
-  load_ini(menu);
   set_to_black(menu);
+  display_wolf(menu);
   display_minimap(menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
@@ -48,6 +48,7 @@ t_bunny_response	wolfloop(t_main_menu *menu)
 
 int	wolf(t_main_menu *menu)
 {
+  load_ini(menu);
   bunny_set_loop_main_function((t_bunny_loop)wolfloop);
   bunny_set_key_response((t_bunny_key)key_wolf);
   printf("/*\n** Wolf\n*/\n");
