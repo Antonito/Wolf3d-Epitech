@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sat Dec 19 08:13:28 2015 Antoine Baché
+** Last update Sat Dec 19 17:13:27 2015 Antoine Baché
 */
 
 
@@ -192,7 +192,7 @@ int			my_power(int, int);
 ** check_wall
 */
 void			check_wall(t_main_menu *);
-void			get_vector_pos(t_vector *, int, int, double);
+void			get_vector_pos(t_vector *, int, double);
 void			get_wall_pos(t_vector *, t_main_menu *, int);
 void			display_wall(t_main_menu *, double, int);
 

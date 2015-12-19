@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:00:38 2015 Antoine Baché
-** Last update Sat Dec 19 08:30:51 2015 Antoine Baché
+** Last update Sat Dec 19 17:38:44 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -60,55 +60,11 @@ int	parse_file(t_main_menu *menu)
   return (0);
 }
 
-void	reverse_map_y(t_main_menu *data)
-{
-  char	*tmp;
-  int	i;
-  int	max;
-
-  i = 0;
-  max = data->map_size.height - 1;
-  while (i < max)
-    {
-      tmp = data->map[i];
-      data->map[i] = data->map[max];
-      data->map[max] = tmp;
-      i++;
-      max--;
-    }
-}
-
-void	reverse_map_x(t_main_menu *data)
-{
-  int	tmp;
-  int	i;
-  int	j;
-  int	max;
-
-  j = 0;
-  while (j < data->map_size.height - 1)
-    {
-      i = 0;
-      max = data->map_size.width - 1;
-      while (i < max)
-	{
-	  tmp = data->map[j][i];
-	  data->map[j][i] = data->map[j][max];
-	  data->map[j][max] = tmp;
-	  i++;
-	  max--;
-	}
-      j++;
-    }
-}
-
 int	load_ini(t_main_menu *menu)
 {
   if (check_ini(menu) == 1)
     return (1);
   if (parse_file(menu) == 1)
     return (1);
-  reverse_map_y(menu);
-  reverse_map_x(menu);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Sat Dec 19 08:48:03 2015 Antoine Baché
+** Last update Sat Dec 19 17:27:40 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -18,9 +18,10 @@ void		my_square(t_main_menu *data, unsigned int color, int i, int j)
   int		max_x;
   int		tmp;
 
-  if (((data->map_size.height + i + 1) / data->map_size.tile) ==
-      (int)data->player.posy && (j / data->map_size.tile) ==
-      (int)data->player.posx)
+  if (((data->map_size.width - (i / data->map_size.tile) - 1)) ==
+      (int)data->player.posx &&
+      (data->map_size.height - (j / data->map_size.tile) - 1) ==
+      (int)data->player.posy)
     color = 0x3A4567;
   j += MAP_X_OFFSET;
   i += MAP_Y_OFFSET;

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Sat Dec 19 08:30:00 2015 Antoine Baché
+** Last update Sat Dec 19 17:44:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -42,7 +42,8 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
     {
       x = data->player.posx + (k * vec->x);
       y = data->player.posy + (k * vec->y);
-      if (data->map[(int)x][(int)y] == 1 && k > 0)
+      if (data->map[data->map_size.width - (int)x - 1]
+	  [data->map_size.height - (int)y - 1] == 1 && k >= 1)
 	{
 	  display_wall(data, k, i);
 	  break;
@@ -51,7 +52,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
     }
 }
 
-void		get_vector_pos(t_vector *vec, UNUSED int tile, int i, double angle)
+void		get_vector_pos(t_vector *vec, int i, double angle)
 {
   double	y1;
 
@@ -69,8 +70,7 @@ void		check_wall(t_main_menu *data)
   i = -1;
   while (++i < WIN_X)
     {
-      get_vector_pos(&vec, data->map_size.tile, i, data->player.angle);
+      get_vector_pos(&vec, i, data->player.angle);
       get_wall_pos(&vec, data, i);
     }
-  printf("player[%f][%f]\n", data->player.posy, data->player.posx);
 }
