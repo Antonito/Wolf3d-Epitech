@@ -5,31 +5,52 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 19 03:43:23 2015 Antoine Baché
-** Last update Sat Dec 19 06:30:43 2015 Antoine Baché
+** Last update Sat Dec 19 07:19:44 2015 Antoine Baché
 */
 
 #include "my.h"
 
+int	check_collision(t_main_menu *data, char select)
+{
+  double	tmp_x;
+  double	tmp_y;
+
+  if (select == 0)
+    {
+      tmp_x = data->player.posx - 0.1 * cos((data->player.angle * M_PI) / 180);
+      tmp_y = data->player.posy - 0.1 * sin((data->player.angle * M_PI) / 180);
+    }
+  else
+    {
+      tmp_x = data->player.posx + 0.1 * cos((data->player.angle * M_PI) / 180);
+      tmp_y = data->player.posy + 0.1 * sin((data->player.angle * M_PI) / 180);
+    }
+  if (data->map[(int)tmp_y][(int)tmp_x] != 0)
+    return (1);
+  return (0);
+}
+
 void	move_player(t_bunny_keysym key, t_main_menu *data)
 {
   if (key == BKS_DOWN && data->map_size.height > (int)data->player.posy &&
-      data->map_size.width > (int)data->player.posx)
+      data->map_size.width > (int)data->player.posx &&
+      check_collision(data, 0) == 0)
     {
-      data->player.posx -= 0.05 * cos((data->player.angle * M_PI) / 180);
-      data->player.posy -= 0.05 * sin((data->player.angle * M_PI) / 180);
+      data->player.posx -= 0.1 * cos((data->player.angle * M_PI) / 180);
+      data->player.posy -= 0.1 * sin((data->player.angle * M_PI) / 180);
     }
   else if (key == BKS_UP && 0 < (int)data->player.posy &&
-	   0 < (int)data->player.posx)
+	   0 < (int)data->player.posx && check_collision(data, 1) == 0)
     {
-      data->player.posx += 0.05 * cos((data->player.angle * M_PI) / 180);
-      data->player.posy += 0.05 * sin((data->player.angle * M_PI) / 180);
+      data->player.posx += 0.1 * cos((data->player.angle * M_PI) / 180);
+      data->player.posy += 0.1 * sin((data->player.angle * M_PI) / 180);
     }
 }
 
 void	rotate_player(t_bunny_keysym key, t_main_menu *data)
 {
   if (key == BKS_RIGHT)
-    data->player.angle -= 10;
+    data->player.angle -= 3;
   else
-    data->player.angle += 10;
+    data->player.angle += 3;
 }

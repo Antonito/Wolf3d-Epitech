@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sat Dec 19 05:36:31 2015 Antoine Baché
+** Last update Sat Dec 19 07:18:05 2015 Antoine Baché
 */
 
 
@@ -195,9 +195,10 @@ void			get_wall_pos(t_vector *, t_main_menu *, int);
 void			display_wall(t_main_menu *, double, int);
 
 /*
-** rotate_player.c
+** player_move.c
 */
 void			rotate_player(t_bunny_keysym, t_main_menu *);
 void			move_player(t_bunny_keysym, t_main_menu *);
+int			check_collision(t_main_menu *, char);
 
 #endif /* !MY_H_ */

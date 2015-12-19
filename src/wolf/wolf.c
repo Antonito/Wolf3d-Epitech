@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Sat Dec 19 06:24:17 2015 Antoine Baché
+** Last update Sat Dec 19 07:07:00 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -56,7 +56,7 @@ int	wolf(t_main_menu *menu)
   load_ini(menu);
   if ((menu->music = bunny_load_music("music/game.ogg")) == NULL)
     return (1);
-  bunny_sound_volume(menu->music, 100);
+  bunny_sound_volume(menu->music, 0);
   bunny_sound_play(menu->music);
   bunny_set_loop_main_function((t_bunny_loop)wolfloop);
   bunny_set_key_response((t_bunny_key)key_wolf);
