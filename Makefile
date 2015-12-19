@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Fri Dec 18 20:31:36 2015 Antoine Baché
+## Last update Sat Dec 19 03:48:35 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -18,6 +18,8 @@ SRC=		src/main.c			\
 		src/wolf/my_getnbr.c		\
 		src/wolf/display_wolf.c		\
 		src/wolf/my_getdouble.c		\
+		src/wolf/check_wall.c		\
+		src/wolf/player_move.c		\
 		src/menu/pause_menu.c		\
 		src/menu/pause_menu_draw.c	\
 		src/menu/pause_menu_actions.c	\

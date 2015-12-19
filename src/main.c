@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Wed Dec 16 18:07:12 2015 Antoine Baché
+** Last update Sat Dec 19 06:08:22 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -32,7 +32,6 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
 
   pos.x = 0;
   pos.y = 0;
-  bunny_sound_volume(menu->music, 20 * menu->options.music);
   draw_menu(menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
@@ -58,6 +57,8 @@ int		main_menu()
   menu->toggle_pause = 0;
   menu->options.select = 1;
   menu->options.music = 1;
+  bunny_sound_volume(menu->music, 20 * menu->options.music);
+  bunny_sound_play(menu->music);
   printf("/*\n** Main Menu\n*/\n");
   bunny_loop(menu->win, 60, menu);
   bunny_delete_sound(menu->music);

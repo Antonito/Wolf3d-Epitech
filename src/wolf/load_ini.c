@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:00:38 2015 Antoine Baché
-** Last update Fri Dec 18 22:14:31 2015 Antoine Baché
+** Last update Sat Dec 19 04:35:56 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -26,10 +26,9 @@ void	load_map_info(t_main_menu *menu)
 							    "level1",
 							    "start_position",
 							    0));
-  menu->player.posy = my_getnbr((char *)bunny_ini_get_field(menu->file,
-							    "level1",
-							    "start_position",
-							    1));
+  menu->player.posy = menu->map_size.height -
+    my_getnbr((char *)bunny_ini_get_field(menu->file, "level1",
+					  "start_position", 1)) - 1;
   menu->player.angle =
     my_getdouble((char *)bunny_ini_get_field(menu->file, "level1",
 					     "start_position", 2));

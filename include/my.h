@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Fri Dec 18 21:07:42 2015 Antoine Baché
+** Last update Sat Dec 19 05:36:31 2015 Antoine Baché
 */
 
 
@@ -20,6 +20,8 @@
 # define SQUARE_SIZE 18
 # define MAP_X_OFFSET 2
 # define MAP_Y_OFFSET 400
+# define GROUND_COLOR 0x838383
+# define SKY_COLOR 0xFF8D55
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
@@ -27,11 +29,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <lapin.h>
+# include <math.h>
+# include <stdio.h>
+
+typedef struct		s_vector
+{
+  double		x;
+  double		y;
+}			t_vector;
 
 typedef struct		s_player
 {
-  int			posx;
-  int			posy;
+  double		posx;
+  double		posy;
   double	       	angle;
 }			t_player;
 
@@ -175,5 +185,19 @@ void			display_wolf(t_main_menu *);
 void			remove_comma(char *);
 double			my_getdouble(char *);
 int			my_power(int, int);
+
+/*
+** check_wall
+*/
+void			check_wall(t_main_menu *);
+void			get_vector_pos(t_vector *, int, int, double);
+void			get_wall_pos(t_vector *, t_main_menu *, int);
+void			display_wall(t_main_menu *, double, int);
+
+/*
+** rotate_player.c
+*/
+void			rotate_player(t_bunny_keysym, t_main_menu *);
+void			move_player(t_bunny_keysym, t_main_menu *);
 
 #endif /* !MY_H_ */

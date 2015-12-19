@@ -5,18 +5,21 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Fri Dec 18 21:19:54 2015 Antoine Baché
+** Last update Sat Dec 19 06:24:17 2015 Antoine Baché
 */
 
 #include "my.h"
-#include <stdio.h>
 
 t_bunny_response	key_wolf(t_bunny_event_state state,
 			    t_bunny_keysym key,
-			     t_main_menu *menu)
+			     t_main_menu *data)
 {
-  if (key == BKS_ESCAPE && state == GO_DOWN && pause_menu(menu) == 2)
+  if (key == BKS_ESCAPE && state == GO_DOWN && pause_menu(data) == 2)
     return (EXIT_ON_SUCCESS);
+  else if ((key == BKS_UP || key == BKS_DOWN) && state == GO_DOWN)
+    move_player(key, data);
+  else if (state == GO_DOWN && (key == BKS_RIGHT || key == BKS_LEFT))
+    rotate_player(key, data);
   return (GO_ON);
 }
 
@@ -48,11 +51,22 @@ t_bunny_response	wolfloop(t_main_menu *menu)
 
 int	wolf(t_main_menu *menu)
 {
+  bunny_sound_stop(menu->music);
+  bunny_delete_sound(menu->music);
   load_ini(menu);
+  if ((menu->music = bunny_load_music("music/game.ogg")) == NULL)
+    return (1);
+  bunny_sound_volume(menu->music, 100);
+  bunny_sound_play(menu->music);
   bunny_set_loop_main_function((t_bunny_loop)wolfloop);
   bunny_set_key_response((t_bunny_key)key_wolf);
   printf("/*\n** Wolf\n*/\n");
   bunny_loop(menu->win, 60, menu);
+  bunny_sound_stop(menu->music);
+  bunny_delete_sound(menu->music);
+  if ((menu->music = bunny_load_music("music/main.ogg")) == NULL)
+    return (1);
+  bunny_sound_play(menu->music);
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
   return (0);

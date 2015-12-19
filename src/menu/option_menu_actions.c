@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 13:10:28 2015 Antoine Baché
-** Last update Sun Dec 13 14:11:43 2015 Antoine Baché
+** Last update Sat Dec 19 06:08:15 2015 Antoine Baché
 */
 
 
@@ -18,6 +18,7 @@ int	option_menu_actions(t_main_menu *menu)
     {
       write(1, "Toggle music !\n", 15);
       menu->options.music = ((menu->options.music == 1) ? 0 : 1);
+      bunny_sound_volume(menu->music, 20 * menu->options.music);
     }
   else if (menu->options.select == 2)
     {

@@ -5,25 +5,29 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Fri Dec 18 18:08:14 2015 Antoine Baché
+** Last update Sat Dec 19 05:16:40 2015 Antoine Baché
 */
 
 #include "my.h"
 #include <stdio.h>
 
-void		my_square(t_main_menu *menu, unsigned int color, int i, int j)
+void		my_square(t_main_menu *data, unsigned int color, int i, int j)
 {
   t_color	*colors;
   int		max_y;
   int		max_x;
   int		tmp;
 
+  if (((data->map_size.height + i + 1) / data->map_size.tile) ==
+      (int)data->player.posy && (j / data->map_size.tile) ==
+      (int)data->player.posx)
+    color = 0x3A4567;
   j += MAP_X_OFFSET;
   i += MAP_Y_OFFSET;
   max_y = i + SQUARE_SIZE;
   max_x = j + SQUARE_SIZE;
   tmp = j - 1;
-  colors = menu->pix->pixels;
+  colors = data->pix->pixels;
   while (i < max_y)
     {
       j = tmp;
@@ -33,23 +37,23 @@ void		my_square(t_main_menu *menu, unsigned int color, int i, int j)
     }
 }
 
-void		display_minimap(t_main_menu *menu)
+void		display_minimap(t_main_menu *data)
 {
   int		i;
   int		j;
 
   i = 0;
-  while (i <  menu->map_size.height * menu->map_size.tile)
+  while (i <  data->map_size.height * data->map_size.tile)
     {
       j = 0;
-      while (j < menu->map_size.width * menu->map_size.tile)
+      while (j < data->map_size.width * data->map_size.tile)
 	{
-	  if (menu->map[i / menu->map_size.tile][j / menu->map_size.tile] == 0)
-	    my_square(menu, WHITE, i, j);
+	  if (data->map[i / data->map_size.tile][j / data->map_size.tile] == 0)
+	    my_square(data, WHITE, i, j);
 	  else
-	    my_square(menu, BLACK, i, j);
-	  j += menu->map_size.tile;
+	    my_square(data, BLACK, i, j);
+	  j += data->map_size.tile;
 	}
-      i += menu->map_size.tile;
+      i += data->map_size.tile;
     }
 }
