@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sat Dec 19 07:18:05 2015 Antoine Baché
+** Last update Sat Dec 19 08:13:28 2015 Antoine Baché
 */
 
 
@@ -172,6 +172,8 @@ int			my_power_ten(int);
 int			my_is_neg(char *);
 int			my_getnbr(char *);
 void			load_map_info(t_main_menu *);
+void			reverse_map_y(t_main_menu *);
+void			reverse_map_x(t_main_menu *);
 
 /*
 ** /wolf/display_wolf.c

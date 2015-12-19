@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Sat Dec 19 06:30:05 2015 Antoine Baché
+** Last update Sat Dec 19 08:30:00 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -42,7 +42,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
     {
       x = data->player.posx + (k * vec->x);
       y = data->player.posy + (k * vec->y);
-      if (data->map[(int)y][(int)x] == 1 && k > 0)
+      if (data->map[(int)x][(int)y] == 1 && k > 0)
 	{
 	  display_wall(data, k, i);
 	  break;
@@ -56,9 +56,9 @@ void		get_vector_pos(t_vector *vec, UNUSED int tile, int i, double angle)
   double	y1;
 
   angle = (angle * M_PI) / 180;
-  y1 = (1.5 * ((WIN_X / 2) - i)) / WIN_X;
-  vec->x = 0.75 * cos(angle) - y1 * sin(angle);
-  vec->y = 0.75 * sin(angle) + y1 * cos(angle);
+  y1 = (1.3 * ((WIN_X / 2) - i)) / WIN_X;
+  vec->x = 0.625 * cos(angle) - y1 * sin(angle);
+  vec->y = 0.625 * sin(angle) + y1 * cos(angle);
 }
 
 void		check_wall(t_main_menu *data)
