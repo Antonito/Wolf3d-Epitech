@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 04:36:38 2015 Antoine Baché
-** Last update Sun Dec 20 05:12:20 2015 Antoine Baché
+** Last update Sun Dec 20 07:33:50 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -29,14 +29,14 @@ void	parse_serv(char **av, t_infos *infos)
 {
   infos->pseudo = av[1];
   infos->port = my_getnbr(av[3]);
-  infos->map = av[5];
+  infos->map = av[4];
 }
 
 int	usage_message(void)
 {
   write(2, "Usage solo: ./wolf3d map.ini\n", 29);
   write(2, "Usage client: ./wolf3d pseudo -c ip port\n", 41);
-  write(2, "Usage serv: ./wolf3d peusdo -h port map.ini\n", 44);
+  write(2, "Usage server: ./wolf3d peusdo -h port map.ini\n", 46);
   return (1);
 }
 
@@ -45,9 +45,15 @@ int	parse_args(int ac, char **av, t_infos *infos)
   if (ac == 2)
     infos->map = av[1];
   else if (my_strcmp(av[2], "-c") == 0 && ac == 5)
-    parse_client(av, infos);
+    {
+      parse_client(av, infos);
+      return (2);
+    }
   else if (my_strcmp(av[2], "-h") == 0 && ac == 5)
-    parse_serv(av, infos);
+    {
+      parse_serv(av, infos);
+      return (3);
+    }
   else
     return (usage_message());
   return (0);

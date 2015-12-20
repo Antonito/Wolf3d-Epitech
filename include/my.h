@@ -5,9 +5,8 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 05:17:11 2015 Antoine Baché
+** Last update Sun Dec 20 07:21:48 2015 Antoine Baché
 */
-
 
 #ifndef MY_H_
 # define MY_H_
@@ -90,6 +89,7 @@ typedef struct		s_player
   double		posx;
   double		posy;
   double	       	angle;
+  char			*pseudo;
 }			t_player;
 
 typedef struct		s_map_size
@@ -105,6 +105,18 @@ typedef struct		s_option_menu
   char			music;
 }			t_option_menu;
 
+typedef struct		s_multiplayer
+{
+  int			serv_fd;
+  int			client_fd;
+  char			*width;
+  char			*height;
+  char			*tile;
+  char			*pposx;
+  char			*pposy;
+  char			*pangle;
+}			t_multiplayer;
+
 typedef	struct		s_main_menu
 {
   t_bunny_pixelarray	*pix;
@@ -117,7 +129,10 @@ typedef	struct		s_main_menu
   char			toggle_pause;
   t_option_menu		options;
   t_player		player;
+  t_player		player2;
+  t_multiplayer		multi;
   t_infos		infos;
+  int			game_mode;
 }			t_main_menu;
 
 /*
@@ -214,6 +229,7 @@ int			wolf(t_main_menu *);
 ** Check_ini.c
 */
 int			check_ini(t_main_menu *);
+int			parse_file(t_main_menu *);
 int			check_field(t_main_menu *);
 int			load_ini(t_main_menu *);
 int			my_strlen_bis(char *);
@@ -275,5 +291,15 @@ int			parse_args(int, char **, t_infos *);
 int			usage_message(void);
 t_main_menu		*prepare_main(void);
 int			my_strcmp(char *, char *);
+
+/*
+** Multiplayer
+*/
+int			start_multiplayer(t_main_menu *);
+int			start_client(t_main_menu *);
+int			start_server(t_main_menu *);
+int			load_ini_multi(t_main_menu *);
+int			parse_file_multi(t_main_menu *);
+void			load_map_info_multi(t_main_menu *);
 
 #endif /* !MY_H_ */

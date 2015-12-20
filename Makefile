@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Sun Dec 20 05:16:09 2015 Antoine Baché
+## Last update Sun Dec 20 06:52:54 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -32,7 +32,9 @@ SRC=		src/main.c			\
 		src/menu/main_menu_actions.c	\
 		src/menu/main_menu.c		\
 		src/multiplayer/client.c	\
+		src/multiplayer/multiplayer.c	\
 		src/multiplayer/server.c	\
+		src/multiplayer/parse.c		\
 		src/multiplayer/my_strlen.c	\
 		src/multiplayer/socket.c
 

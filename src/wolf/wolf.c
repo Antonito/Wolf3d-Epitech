@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Sat Dec 19 17:02:51 2015 Antoine Baché
+** Last update Sun Dec 20 06:31:32 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -41,7 +41,8 @@ int	wolf(t_main_menu *menu)
 {
   bunny_sound_stop(menu->music);
   bunny_delete_sound(menu->music);
-  load_ini(menu);
+  if (menu->game_mode == 0)
+    load_ini(menu);
   if ((menu->music = bunny_load_music("music/game.ogg")) == NULL)
     return (1);
   bunny_sound_volume(menu->music, 20 * menu->options.music);

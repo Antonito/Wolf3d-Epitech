@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 02:32:00 2015 Antoine Baché
-** Last update Sun Dec 20 04:34:47 2015 Antoine Baché
+** Last update Sun Dec 20 05:23:18 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -17,7 +17,7 @@ char	*socket_read(int fd)
 
   if (fd == -1)
     return (NULL);
-  if ((received = malloc(BUFF_SIZE + 1)) == NULL)
+  if ((received = bunny_malloc(BUFF_SIZE + 1)) == NULL)
     return (NULL);
   if ((nb = read(fd, received, BUFF_SIZE)) == -1)
     return (NULL);

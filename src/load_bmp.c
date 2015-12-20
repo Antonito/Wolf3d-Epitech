@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Sun Dec 20 01:56:42 2015 Antoine Baché
+** Last update Sun Dec 20 05:23:46 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -48,7 +48,7 @@ int		load_bmp(t_texture *picture)
       write(2, "Image is not a bmp\n", 19);
       return (1);
     }
-  if ((picture->picture = malloc(sizeof(unsigned int) *
+  if ((picture->picture = bunny_malloc(sizeof(unsigned int) *
 				 ABS(info_header.width) *
 				 ABS(info_header.height))) == NULL)
     return (1);

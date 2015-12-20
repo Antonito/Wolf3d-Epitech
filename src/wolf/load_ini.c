@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:00:38 2015 Antoine Baché
-** Last update Sat Dec 19 17:38:44 2015 Antoine Baché
+** Last update Sun Dec 20 05:26:05 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -39,13 +39,13 @@ int	parse_file(t_main_menu *menu)
   int	j;
 
   load_map_info(menu);
-  if ((menu->map = malloc(sizeof(char *) * menu->map_size.height))
+  if ((menu->map = bunny_malloc(sizeof(char *) * menu->map_size.height))
       == NULL)
     return (1);
   i = -1;
   j = -1;
   while (++i < menu->map_size.height)
-    if ((menu->map[i] = malloc(menu->map_size.width)) == NULL)
+    if ((menu->map[i] = bunny_malloc(menu->map_size.width)) == NULL)
       return (1);
   while (++j < menu->map_size.height && (i = -1))
     while (++i < menu->map_size.width)
