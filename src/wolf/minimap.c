@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Sat Dec 19 17:27:40 2015 Antoine Baché
+** Last update Sun Dec 20 09:12:28 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -49,7 +49,8 @@ void		display_minimap(t_main_menu *data)
       j = 0;
       while (j < data->map_size.width * data->map_size.tile)
 	{
-	  if (data->map[i / data->map_size.tile][j / data->map_size.tile] == 0)
+	  if (data->map[i / data->map_size.tile][j / data->map_size.tile]
+	      == 0)
 	    my_square(data, WHITE, i, j);
 	  else
 	    my_square(data, BLACK, i, j);

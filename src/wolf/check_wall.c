@@ -5,10 +5,28 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Sat Dec 19 20:57:16 2015 Antoine Baché
+** Last update Sun Dec 20 10:31:19 2015 Antoine Baché
 */
 
 #include "my.h"
+
+void		display_player(t_main_menu *data, double k, int i)
+{
+  int		demi_wall;
+  int		start;
+  int		end;
+  t_color	*colors;
+
+  demi_wall = WIN_Y / (2 * k);
+  start = WIN_X * (WIN_Y / 2) + i - (WIN_X * demi_wall);
+  end = WIN_X * (WIN_Y / 2) + i + (WIN_X * demi_wall);
+  colors = data->pix->pixels;
+  while (start < end && start >= 0 && end < WIN_X * WIN_Y)
+    {
+      colors[start].full = 0x345678;
+      start += WIN_X;
+    }
+}
 
 void		display_wall(t_main_menu *data, double k, int i)
 {
@@ -37,8 +55,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
   k = 0;
   x = 0;
   y = 0;
-  while ((int)x < data->map_size.width &&
-	 (int)y < data->map_size.height)
+  while ((int)x < data->map_size.width && (int)y < data->map_size.height)
     {
       x = data->player.posx + (k * vec->x);
       y = data->player.posy + (k * vec->y);
@@ -46,6 +63,12 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
 	  [data->map_size.height - (int)y - 1] == 1 && k >= 1)
 	{
 	  display_wall(data, k, i);
+	  break;
+	}
+      if (data->map[data->map_size.width - (int)x - 1]
+	  [data->map_size.height - (int)y - 1] == 2 && k >= 1)
+	{
+	  display_player(data, k, i);
 	  break;
 	}
       k += 0.001;

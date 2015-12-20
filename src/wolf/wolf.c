@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Sun Dec 20 06:31:32 2015 Antoine Baché
+** Last update Sun Dec 20 10:35:23 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -27,6 +27,8 @@ t_bunny_response	wolfloop(t_main_menu *menu)
 {
   t_bunny_position	pos;
 
+  if (menu->game_mode != 0)
+    calc_pos_player(menu);
   pos.x = 0;
   pos.y = 0;
   display_wolf(menu);

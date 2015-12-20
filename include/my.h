@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 07:21:48 2015 Antoine Baché
+** Last update Sun Dec 20 10:42:18 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -88,6 +88,8 @@ typedef struct		s_player
 {
   double		posx;
   double		posy;
+  double		oldposx;
+  double       		oldposy;
   double	       	angle;
   char			*pseudo;
 }			t_player;
@@ -249,7 +251,7 @@ void			display_wolf(t_main_menu *);
 /*
 ** my_getdouble.c
 */
-void			remove_comma(char *);
+void			remove_comma(char *, char *);
 double			my_getdouble(char *);
 int			my_power(int, int);
 
@@ -301,5 +303,12 @@ int			start_server(t_main_menu *);
 int			load_ini_multi(t_main_menu *);
 int			parse_file_multi(t_main_menu *);
 void			load_map_info_multi(t_main_menu *);
+int			client_map(t_main_menu *);
+int			server_map(t_main_menu *);
+int			socket_send_map(int, char *, int);
+void			display_player(t_main_menu *, double, int);
+void			calc_pos_player(t_main_menu *);
+void			server_pos(t_main_menu *);
+void			client_pos(t_main_menu *);
 
 #endif /* !MY_H_ */

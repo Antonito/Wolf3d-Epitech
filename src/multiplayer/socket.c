@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 02:32:00 2015 Antoine Baché
-** Last update Sun Dec 20 05:23:18 2015 Antoine Baché
+** Last update Sun Dec 20 09:14:33 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -23,6 +23,16 @@ char	*socket_read(int fd)
     return (NULL);
   received[nb] = '\0';
   return (received);
+}
+
+int	socket_send_map(int fd, char *msg, int len)
+{
+  if (write(fd, msg, len) == -1)
+    {
+      write(2, "Error sending data\n", 19);
+      return (1);
+    }
+  return (0);
 }
 
 int	socket_send(int fd, char *msg)

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:00:38 2015 Antoine Baché
-** Last update Sun Dec 20 05:26:05 2015 Antoine Baché
+** Last update Sun Dec 20 09:12:14 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -51,9 +51,9 @@ int	parse_file(t_main_menu *menu)
     while (++i < menu->map_size.width)
       {
 	if ((menu->map[j][i] =
-	     my_getnbr((char *)
-		       bunny_ini_get_field(menu->file, "level1", "data",
-					   i + j * menu->map_size.width)))
+	     my_getnbr((char *)bunny_ini_get_field(menu->file,
+						   "level1", "data", i + j *
+						   menu->map_size.width)))
 	    != 0 && menu->map[j][i] != 1)
 	  return (1);
       }

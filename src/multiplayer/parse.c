@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 06:53:09 2015 Antoine Baché
-** Last update Sun Dec 20 07:35:25 2015 Antoine Baché
+** Last update Sun Dec 20 10:12:10 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -24,17 +24,20 @@ void	load_map_info_multi(t_main_menu *menu)
     (char *)bunny_ini_get_field(menu->file, "level1", "start_position", 1);
   menu->multi.pangle =
     (char *)bunny_ini_get_field(menu->file, "level1", "start_position", 2);
+  printf("angle = %s\n", menu->multi.pangle);
 }
 
 int	parse_file_multi(t_main_menu *menu)
 {
   load_map_info_multi(menu);
+  printf("angle = %s\n", menu->multi.pangle);
   menu->map_size.width = my_getnbr(menu->multi.width);
   menu->map_size.height = my_getnbr(menu->multi.height);
   menu->map_size.tile = my_getnbr(menu->multi.tile);
   menu->player.posx = my_getnbr(menu->multi.pposx);
   menu->player.posy = my_getnbr(menu->multi.pposy);
   menu->player.angle = my_getdouble(menu->multi.pangle);
+  printf("angle = %s\n", menu->multi.pangle);
   return (0);
 }
 
