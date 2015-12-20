@@ -11,5 +11,14 @@ Musique menu				OK
 Bruit de pas
 Mini-map				OK
 	Fond minimap
-	Fixer déplacement
+	Fixer déplacement		OK
+Collision
+	Stop				OK
+	Glisser
+Serveur
+	Connexion
+	Host
+	Affichage joueur distant
+	Gestion collisions joueur distant
+	Texture joueur distant
 Partie Obligatoire

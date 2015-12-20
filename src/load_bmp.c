@@ -5,30 +5,58 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Tue Dec 15 16:30:33 2015 Antoine Baché
+** Last update Sun Dec 20 01:56:42 2015 Antoine Baché
 */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
-#define BUFF_SIZE 2345678
+#include "my.h"
 
-unsigned int	*load_bmp()
+void		display_bmp(t_texture *picture, t_main_menu *data)
 {
-  unsigned int	*buff;
-  int		fd;
   int		i;
+  int		j;
+  int		tmp;
+  t_color	*colors;
 
-  i = 2559;
-  if ((buff = malloc(sizeof(unsigned int) * BUFF_SIZE)) == NULL)
-    return (NULL);
-  else if ((fd = open("img/ExitPNG.bmp", O_RDONLY)) == -1)
-    return (NULL);
-  read(fd, buff, BUFF_SIZE - 1);
-  while (++i < 70001)
-    printf("buff[i] = %d\n", buff[i]);
-  return (buff);
+  i = -1;
+  j = -1;
+  tmp = -1;
+  colors = data->pix->pixels;
+  while (++i < picture->height * picture->width)
+    {
+      colors[++j].full = picture->picture[i];
+      if (++tmp == picture->width)
+	{
+	  j += WIN_X - picture->width;
+	  tmp = 0;
+	}
+    }
+}
+
+int		load_bmp(t_texture *picture)
+{
+  t_bmp_header		header;
+  t_bmp_info_header	info_header;
+  int			fd;
+  int			readed;
+
+  if ((fd = open("img/a.bmp", O_RDONLY)) == -1)
+    return (1);
+  readed = read(fd, &header, sizeof(t_bmp_header));
+  read(fd, &info_header, sizeof(t_bmp_info_header));
+  if (header.type !=0x4D42)
+    {
+      write(2, "Image is not a bmp\n", 19);
+      return (1);
+    }
+  if ((picture->picture = malloc(sizeof(unsigned int) *
+				 ABS(info_header.width) *
+				 ABS(info_header.height))) == NULL)
+    return (1);
+  readed = read(fd, picture->picture,
+		ABS(info_header.width) * ABS(info_header.height));
+  if (readed != ABS(info_header.width) * ABS(info_header.height))
+    return (1);
+  picture->width = ABS(info_header.width);
+  picture->height = ABS(info_header.height);
+  return (0);
 }

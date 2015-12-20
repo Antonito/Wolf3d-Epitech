@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sat Dec 19 17:13:27 2015 Antoine Baché
+** Last update Sun Dec 20 00:38:11 2015 Antoine Baché
 */
 
 
@@ -25,12 +25,47 @@
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
+# define PACKED __attribute__((packed))
+# define ABS(x) ((x < 0) ? -x : x)
 
 # include <stdlib.h>
+# include <sys/stat.h>
+# include <sys/types.h>
 # include <unistd.h>
 # include <lapin.h>
 # include <math.h>
 # include <stdio.h>
+# include <fcntl.h>
+
+typedef struct		s_texture
+{
+  unsigned int		*picture;
+  int			width;
+  int			height;
+}			t_texture;
+
+typedef struct	       	s_bmp_info_header
+{
+  PACKED unsigned int	struct_size;
+  PACKED int		width;
+  PACKED int		height;
+  PACKED unsigned short	colorplanes;
+  PACKED unsigned short	bit_per_pixel;
+  PACKED unsigned int	compression;
+  PACKED unsigned int	byte_size;
+  PACKED int		pix_per_meter_x;
+  PACKED int		pix_per_meter_y;
+  PACKED unsigned int	nb_color_used;
+  PACKED unsigned int	nb_color_important;
+}			t_bmp_info_header;
+
+typedef struct		s_bmp_header
+{
+  PACKED unsigned short	type;
+  PACKED unsigned int	size;
+  PACKED unsigned int	reserved1;
+  PACKED unsigned int	offset;
+}			t_bmp_header;
 
 typedef struct		s_vector
 {
@@ -80,7 +115,8 @@ void			display_minimap(t_main_menu *);
 /*
 ** Load BMP images (load_bmp.c)
 */
-unsigned int  		*load_bmp(void);
+int			load_bmp(t_texture *);
+void			display_bmp(t_texture *, t_main_menu *);
 
 /*
 ** Main menu functions (main.c)
@@ -202,5 +238,7 @@ void			display_wall(t_main_menu *, double, int);
 void			rotate_player(t_bunny_keysym, t_main_menu *);
 void			move_player(t_bunny_keysym, t_main_menu *);
 int			check_collision(t_main_menu *, char);
+int			check_collision_x(t_main_menu *, char);
+int			check_collision_y(t_main_menu *, char);
 
 #endif /* !MY_H_ */

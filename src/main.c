@@ -5,11 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Sat Dec 19 16:50:29 2015 Antoine Baché
+** Last update Sun Dec 20 02:01:31 2015 Antoine Baché
 */
 
 #include "my.h"
-#include <stdio.h>
 
 t_bunny_response	key(t_bunny_event_state state,
 			    t_bunny_keysym key, t_main_menu *menu)
