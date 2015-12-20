@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Sun Dec 20 02:01:31 2015 Antoine Baché
+** Last update Sun Dec 20 05:12:53 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -38,13 +38,9 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
   return (GO_ON);
 }
 
-int		main_menu()
+int		main_menu(t_main_menu *menu)
 {
-  t_main_menu	*menu;
-
-  if ((menu = bunny_malloc(sizeof(t_main_menu))) == NULL)
-    return (1);
-  else if ((menu->win = bunny_start(WIN_X, WIN_Y, 0, "Wolf3D")) == NULL)
+  if ((menu->win = bunny_start(WIN_X, WIN_Y, 0, "Wolf3D")) == NULL)
     return (ERROR_MAIN_WIN);
   else if ((menu->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) == NULL)
     return (ERROR_MAIN_PIX);
@@ -52,10 +48,6 @@ int		main_menu()
     return (ERROR_MAIN_MUSIC);
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
-  menu->select = 1;
-  menu->toggle_pause = 0;
-  menu->options.select = 1;
-  menu->options.music = 1;
   bunny_sound_volume(menu->music, 20 * menu->options.music);
   bunny_sound_play(menu->music);
   printf("/*\n** Main Menu\n*/\n");
@@ -67,9 +59,17 @@ int		main_menu()
   return (0);
 }
 
-int	main(UNUSED int ac, UNUSED char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
-  if (*env == NULL || main_menu() == 1)
+  t_main_menu	*data;
+
+  if (*env == NULL || ac > 5 || ac < 2)
+    return (usage_message());
+  if ((data = prepare_main()) == NULL)
+    return (1);
+  if (ac >= 2 && parse_args(ac, av, &data->infos) == 1)
+    return (1);
+  if (main_menu(data) == 1)
     return (1);
   return (0);
 }

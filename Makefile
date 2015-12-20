@@ -5,12 +5,15 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Sat Dec 19 03:48:35 2015 Antoine Baché
+## Last update Sun Dec 20 05:16:09 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
 		src/free_main.c			\
 		src/load_bmp.c			\
+		src/parse.c			\
+		src/prepare_struct.c		\
+		src/my_strcmp.c			\
 		src/wolf/wolf.c			\
 		src/wolf/minimap.c		\
 		src/wolf/check_ini.c		\
@@ -27,7 +30,11 @@ SRC=		src/main.c			\
 		src/menu/option_menu.c		\
 		src/menu/option_menu_actions.c	\
 		src/menu/main_menu_actions.c	\
-		src/menu/main_menu.c
+		src/menu/main_menu.c		\
+		src/multiplayer/client.c	\
+		src/multiplayer/server.c	\
+		src/multiplayer/my_strlen.c	\
+		src/multiplayer/socket.c
 
 NAME=		wolf3d
 

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 00:38:11 2015 Antoine Baché
+** Last update Sun Dec 20 05:17:11 2015 Antoine Baché
 */
 
 
@@ -27,7 +27,11 @@
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
 # define PACKED __attribute__((packed))
 # define ABS(x) ((x < 0) ? -x : x)
+# define BUFF_SIZE 4096
 
+# include <sys/socket.h>
+# include <netdb.h>
+# include <arpa/inet.h>
 # include <stdlib.h>
 # include <sys/stat.h>
 # include <sys/types.h>
@@ -36,6 +40,14 @@
 # include <math.h>
 # include <stdio.h>
 # include <fcntl.h>
+
+typedef struct		s_infos
+{
+  char			*pseudo;
+  char			*address;
+  int			port;
+  char			*map;
+}			t_infos;
 
 typedef struct		s_texture
 {
@@ -105,6 +117,7 @@ typedef	struct		s_main_menu
   char			toggle_pause;
   t_option_menu		options;
   t_player		player;
+  t_infos		infos;
 }			t_main_menu;
 
 /*
@@ -123,7 +136,7 @@ void			display_bmp(t_texture *, t_main_menu *);
 */
 t_bunny_response	key(t_bunny_event_state, t_bunny_keysym, t_main_menu *);
 t_bunny_response	mainMenuLoop(t_main_menu *);
-int			main_menu(void);
+int			main_menu(t_main_menu *);
 
 /*
 ** Free on errors main (free_main.c)
@@ -240,5 +253,27 @@ void			move_player(t_bunny_keysym, t_main_menu *);
 int			check_collision(t_main_menu *, char);
 int			check_collision_x(t_main_menu *, char);
 int			check_collision_y(t_main_menu *, char);
+
+/*
+** Server
+*/
+int			socket_send(int, char *);
+char			*socket_read(int);
+int			my_strlen(char *);
+int			server(int);
+int			bind_serv(struct sockaddr_in *, int, int);
+int			client(char *, int);
+char			*socket_read(int);
+
+/*
+** Parsing
+*/
+void			prepare_infos(t_infos *);
+void			parse_client(char **, t_infos *);
+void			parse_serv(char **, t_infos *);
+int			parse_args(int, char **, t_infos *);
+int			usage_message(void);
+t_main_menu		*prepare_main(void);
+int			my_strcmp(char *, char *);
 
 #endif /* !MY_H_ */

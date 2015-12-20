@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:02:32 2015 Antoine Baché
-** Last update Fri Dec 18 16:22:51 2015 Antoine Baché
+** Last update Sun Dec 20 05:10:46 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -34,7 +34,7 @@ int	check_field(t_main_menu *menu)
 
 int	check_ini(t_main_menu *menu)
 {
-  if ((menu->file = bunny_load_ini("data/map.ini")) == NULL)
+  if ((menu->file = bunny_load_ini(menu->infos.map)) == NULL)
     {
       write(2, "./wolf3d: cannot open or read file data/map.ini.\n", 49);
       return (1);
