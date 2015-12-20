@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 19:22:23 2015 Antoine Baché
+** Last update Sun Dec 20 20:20:07 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -89,9 +89,8 @@ typedef struct		s_player
   double		posx;
   double		posy;
   double	       	angle;
-  char			*pposx;
-  char			*pposy;
-  char			*pangle;
+  double		oldposx;
+  double		oldposy;
   char			*pseudo;
 }			t_player;
 
@@ -311,5 +310,7 @@ void			client_pos(t_main_menu *);
 char			*my_strdup(char *);
 int			client_map_basics(t_main_menu *);
 int			client_distant_player(t_main_menu *);
+double			socket_r_double(int);
+int			socket_send_double(int, double);
 
 #endif /* !MY_H_ */

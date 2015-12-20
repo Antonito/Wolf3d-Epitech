@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:30:04 2015 Antoine Baché
-** Last update Sun Dec 20 19:24:14 2015 Antoine Baché
+** Last update Sun Dec 20 20:14:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -41,18 +41,9 @@ int	start_client(t_main_menu *data)
   client_map(data);
   if (client_distant_player(data) == 1)
     return (1);
-  data->player2.posx = my_getnbr(data->player2.pposx);
-  printf("[STOCK] PosX P2 = %f PPOSX = %s\n", data->player2.posx, data->player2.pposx);
-  data->player2.posy = my_getnbr(data->player2.pposy);
-  printf("[STOCK] PosY P2 = %f PPOSY = %s\n", data->player2.posy, data->player2.pposy);
-  data->player2.angle = my_getnbr(data->player2.pangle);
-  printf("[STOCK] Angle P2 = %f Pangle = %s\n", data->player2.angle, data->player2.pangle);
   data->player.posx = 2;
-  data->player.pposx = "2";
   data->player.posy = 1;
-  data->player.pposy = "1";
   data->player.angle = 30;
-  data->player.pangle = "30";
   return (0);
 }
 
@@ -92,14 +83,17 @@ int	start_server(t_main_menu *data)
     return (1);
   if (server_map(data) == 1)
     return (1);
-  if ((socket_send(data->multi.serv_fd, data->player.pposx)) == 1)
+  if ((socket_send_double(data->multi.serv_fd, data->player.posx)) == 1)
     return (1);
+  printf("Posx = %f\n", data->player.posx);
   socket_read(data->multi.serv_fd);
-  if ((socket_send(data->multi.serv_fd, data->player.pposy)) == 1)
+  if ((socket_send_double(data->multi.serv_fd, data->player.posy)) == 1)
     return (1);
+  printf("Posy = %f\n", data->player.posy);
   socket_read(data->multi.serv_fd);
-  if ((socket_send(data->multi.serv_fd, data->player.pangle)) == 1)
+  if ((socket_send_double(data->multi.serv_fd, data->player.angle)) == 1)
     return (1);
+  printf("Angle = %f\n", data->player.angle);
   socket_read(data->multi.serv_fd);
   return (0);
 }
