@@ -5,10 +5,20 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 10:36:08 2015 Antoine Baché
-** Last update Sun Dec 20 20:38:37 2015 Antoine Baché
+** Last update Sun Dec 20 20:54:27 2015 Antoine Baché
 */
 
 #include "my.h"
+
+void	set_player_pos(t_main_menu *data)
+{
+  if (((int)data->player2.oldposx != (int)data->player.posx) ||
+      ((int)data->player2.oldposy != (int)data->player.posy))
+  data->map[data->map_size.width - (int)data->player2.oldposx - 1]
+    [data->map_size.height - (int)data->player2.oldposy - 1] = 0;
+  data->map[data->map_size.width - (int)data->player2.posx - 1]
+    [data->map_size.height - (int)data->player2.posy - 1] = 2;
+}
 
 void	server_pos(t_main_menu *data)
 {
@@ -44,6 +54,5 @@ void	calc_pos_player(t_main_menu *data)
     client_pos(data);
   else
     server_pos(data);
-  printf("Local P: x = %f y = %f a = %f\n", data->player.posx, data->player.posy, data->player.angle);
-  printf("Distant P: x = %f y = %f a = %f\n", data->player2.posx, data->player2.posy, data->player2.angle);
+  set_player_pos(data);
 }

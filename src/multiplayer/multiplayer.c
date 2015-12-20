@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:30:04 2015 Antoine Baché
-** Last update Sun Dec 20 20:14:12 2015 Antoine Baché
+** Last update Sun Dec 20 21:08:48 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -41,9 +41,6 @@ int	start_client(t_main_menu *data)
   client_map(data);
   if (client_distant_player(data) == 1)
     return (1);
-  data->player.posx = 2;
-  data->player.posy = 1;
-  data->player.angle = 30;
   return (0);
 }
 
@@ -85,16 +82,15 @@ int	start_server(t_main_menu *data)
     return (1);
   if ((socket_send_double(data->multi.serv_fd, data->player.posx)) == 1)
     return (1);
-  printf("Posx = %f\n", data->player.posx);
   socket_read(data->multi.serv_fd);
   if ((socket_send_double(data->multi.serv_fd, data->player.posy)) == 1)
     return (1);
-  printf("Posy = %f\n", data->player.posy);
   socket_read(data->multi.serv_fd);
   if ((socket_send_double(data->multi.serv_fd, data->player.angle)) == 1)
     return (1);
-  printf("Angle = %f\n", data->player.angle);
   socket_read(data->multi.serv_fd);
+  if (serv_distant_player(data) == 1)
+    return (1);
   return (0);
 }
 

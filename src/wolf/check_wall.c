@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Sun Dec 20 10:31:19 2015 Antoine Baché
+** Last update Sun Dec 20 21:15:35 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -23,7 +23,7 @@ void		display_player(t_main_menu *data, double k, int i)
   colors = data->pix->pixels;
   while (start < end && start >= 0 && end < WIN_X * WIN_Y)
     {
-      colors[start].full = 0x345678;
+      colors[start].full = 0x22F1FF;
       start += WIN_X;
     }
 }

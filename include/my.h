@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 20:20:07 2015 Antoine Baché
+** Last update Sun Dec 20 21:09:52 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -312,5 +312,8 @@ int			client_map_basics(t_main_menu *);
 int			client_distant_player(t_main_menu *);
 double			socket_r_double(int);
 int			socket_send_double(int, double);
+void			set_player_pos(t_main_menu *);
+int			serv_distant_player(t_main_menu *);
+void			set_client_position(t_main_menu *);
 
 #endif /* !MY_H_ */
