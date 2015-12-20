@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Sun Dec 20 21:15:35 2015 Antoine Baché
+** Last update Sun Dec 20 22:43:50 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -55,18 +55,18 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
   k = 0;
   x = 0;
   y = 0;
-  while ((int)x < data->map_size.width && (int)y < data->map_size.height)
+  while ((int)x < data->map_size.height && (int)y < data->map_size.width)
     {
       x = data->player.posx + (k * vec->x);
       y = data->player.posy + (k * vec->y);
-      if (data->map[data->map_size.width - (int)x - 1]
-	  [data->map_size.height - (int)y - 1] == 1 && k >= 1)
+      if (data->map[data->map_size.height - (int)x - 1]
+	  [data->map_size.width - (int)y - 1] == 1 && k >= 1)
 	{
 	  display_wall(data, k, i);
 	  break;
 	}
-      if (data->map[data->map_size.width - (int)x - 1]
-	  [data->map_size.height - (int)y - 1] == 2 && k >= 1)
+      if (data->map[data->map_size.height - (int)x - 1]
+	  [data->map_size.width - (int)y - 1] == 2 && k >= 1)
 	{
 	  display_player(data, k, i);
 	  break;
