@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Sun Dec 20 10:42:18 2015 Antoine Baché
+** Last update Sun Dec 20 19:22:23 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -88,9 +88,10 @@ typedef struct		s_player
 {
   double		posx;
   double		posy;
-  double		oldposx;
-  double       		oldposy;
   double	       	angle;
+  char			*pposx;
+  char			*pposy;
+  char			*pangle;
   char			*pseudo;
 }			t_player;
 
@@ -114,9 +115,6 @@ typedef struct		s_multiplayer
   char			*width;
   char			*height;
   char			*tile;
-  char			*pposx;
-  char			*pposy;
-  char			*pangle;
 }			t_multiplayer;
 
 typedef	struct		s_main_menu
@@ -310,5 +308,8 @@ void			display_player(t_main_menu *, double, int);
 void			calc_pos_player(t_main_menu *);
 void			server_pos(t_main_menu *);
 void			client_pos(t_main_menu *);
+char			*my_strdup(char *);
+int			client_map_basics(t_main_menu *);
+int			client_distant_player(t_main_menu *);
 
 #endif /* !MY_H_ */

@@ -16,8 +16,8 @@ Collision
 	Stop				OK
 	Glisser
 Serveur
-	Connexion
-	Host
+	Connexion			OK
+	Host				OK
 	Affichage joueur distant
 	Gestion collisions joueur distant
 	Texture joueur distant
