@@ -25,7 +25,7 @@ Serveur
 	Chat
 	Position dynamique joueur distant
 Partie Obligatoire
-       Fonction Go
+       Fonction Go			OK
        Check pos Players		OK
        Check width et height
        Check si pos depart -> 1		OK
