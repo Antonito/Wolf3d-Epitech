@@ -5,12 +5,11 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Mon Dec 21 08:57:34 2015 Antoine Baché
+## Last update Mon Dec 21 23:48:38 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
 		src/free_main.c			\
-		src/load_bmp.c			\
 		src/parse.c			\
 		src/prepare_struct.c		\
 		src/my_strcmp.c			\
@@ -32,6 +31,10 @@ SRC=		src/main.c			\
 		src/menu/option_menu_actions.c	\
 		src/menu/main_menu_actions.c	\
 		src/menu/main_menu.c		\
+		src/texture/load_bmp.c		\
+		src/texture/main_menu_texture.c	\
+		src/texture/opt_menu_texture.c	\
+		src/texture/game_menu_texture.c	\
 		src/multiplayer/my_strdup.c	\
 		src/multiplayer/client.c	\
 		src/multiplayer/multiplayer.c	\

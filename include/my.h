@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Mon Dec 21 14:46:41 2015 Antoine Baché
+** Last update Mon Dec 21 23:58:48 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -127,6 +127,7 @@ typedef	struct		s_main_menu
   char			**map;
   char			select;
   char			toggle_pause;
+  t_texture		**texture;
   t_option_menu		options;
   t_player		player;
   t_player		player2;
@@ -143,8 +144,16 @@ void			display_minimap(t_main_menu *);
 /*
 ** Load BMP images (load_bmp.c)
 */
-int			load_bmp(t_texture *);
-void			display_bmp(t_texture *, t_main_menu *);
+int			load_bmp(t_texture *, char *);
+void			display_bmp(t_main_menu *, int, int, int);
+void			display_reversed_bmp(t_main_menu *, int, int, int);
+int			main_menu_texture(t_main_menu *);
+void			main_menu_texture_disp(t_main_menu *);
+int			option_menu_texture(t_main_menu *);
+void			option_menu_texture_disp(t_main_menu *);
+int			pause_menu_texture(t_main_menu *);
+void			pause_menu_texture_disp(t_main_menu *);
+
 
 /*
 ** Main menu functions (main.c)

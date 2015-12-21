@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:34:44 2015 Antoine Baché
-** Last update Mon Dec 21 11:22:12 2015 Antoine Baché
+** Last update Mon Dec 21 22:44:01 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -18,7 +18,7 @@ void	option_title(t_main_menu *menu)
   i = -1;
   color = menu->pix->pixels;
   while (++i < WIN_X * MAIN_TITLE)
-    color[i].full = WHITE;
+    color[i].full = BLACK;
 }
 
 void	sub_option_titles(t_main_menu *menu)
@@ -29,10 +29,10 @@ void	sub_option_titles(t_main_menu *menu)
   i = WIN_X * (MAIN_TITLE + SPACE_TITLE);
   color = menu->pix->pixels;
   while (++i < WIN_X * (MAIN_TITLE + SPACE_TITLE + SUB_TITLE))
-    color[i].full = WHITE;
+    color[i].full = BLACK;
   i += SPACE_TITLE * WIN_X;
   while (++i < WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 2))
-    color[i].full = WHITE;
+    color[i].full = BLACK;
 }
 
 void		put_option_selector(t_main_menu *menu)
@@ -62,4 +62,5 @@ void	draw_option_menu(t_main_menu *menu)
   option_title(menu);
   sub_option_titles(menu);
   put_option_selector(menu);
+  option_menu_texture_disp(menu);
 }

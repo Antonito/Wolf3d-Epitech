@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:52:07 2015 Antoine Baché
-** Last update Mon Dec 21 18:40:21 2015 Antoine Baché
+** Last update Mon Dec 21 23:58:10 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -75,4 +75,5 @@ void	draw_pause_menu(t_main_menu *menu)
   pause_title(menu);
   sub_pause_titles(menu);
   put_pause_selector(menu);
+  pause_menu_texture_disp(menu);
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:36:04 2015
-** Last update Mon Dec 21 08:37:55 2015 Antoine Baché
+** Last update Mon Dec 21 22:44:40 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -18,7 +18,7 @@ void	main_title(t_main_menu	*menu)
   i = -1;
   color = menu->pix->pixels;
   while (++i < WIN_X * MAIN_TITLE)
-    color[i].full = WHITE;
+    color[i].full = BLACK;
 }
 
 void	sub_titles(t_main_menu *menu)
@@ -29,13 +29,13 @@ void	sub_titles(t_main_menu *menu)
   i = WIN_X * (MAIN_TITLE + SPACE_TITLE);
   color = menu->pix->pixels;
   while (++i < WIN_X * (MAIN_TITLE + SPACE_TITLE + SUB_TITLE))
-    color[i].full = WHITE;
+    color[i].full = BLACK;
   i += SPACE_TITLE * WIN_X;
   while (++i < WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 2))
-    color[i].full = WHITE;
+    color[i].full = BLACK;
   i += SPACE_TITLE * WIN_X;
   while (++i < WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 3))
-    color[i].full = WHITE;
+    color[i].full = BLACK;
 }
 
 void		put_selector(t_main_menu *menu)
