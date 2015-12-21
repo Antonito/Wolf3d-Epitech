@@ -22,9 +22,10 @@ Serveur
 	Affichage joueur distant	OK
 	Gestion collisions joueur distantOK
 	Texture joueur distant
+	Chat
 Partie Obligatoire
        Fonction Go
        Check posx et posy
        Check width et height
        Check si pos depart -> 1
-       Check bordures map
+       Check bordures map		OK

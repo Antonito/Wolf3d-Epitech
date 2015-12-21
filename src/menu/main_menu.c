@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:36:04 2015
-** Last update Sun Dec 13 01:38:03 2015 Antoine Baché
+** Last update Mon Dec 21 08:37:55 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -77,10 +77,6 @@ void		fill_black(t_main_menu *menu)
 
 void			draw_menu(t_main_menu *menu)
 {
-  /*  t_bunny_position	pos;
-
-  pos.x = 0;
-  pos.y = 10;*/
   fill_black(menu);
   main_title(menu);
   sub_titles(menu);

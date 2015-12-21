@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Sun Dec 20 06:15:06 2015 Antoine Baché
+** Last update Mon Dec 21 08:38:29 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -19,7 +19,7 @@ t_bunny_response	key(t_bunny_event_state state,
     menu->select++;
   else if (key == BKS_RETURN && state == GO_DOWN &&
 	   main_menu_actions(menu) == 1)
-    return (EXIT_ON_SUCCESS);
+    return (EXIT_ON_ERROR);
   else if (key == BKS_ESCAPE && state == GO_DOWN)
     return (EXIT_ON_SUCCESS);
   return (GO_ON);
