@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:02:32 2015 Antoine Baché
-** Last update Mon Dec 21 08:45:49 2015 Antoine Baché
+** Last update Mon Dec 21 08:57:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -34,6 +34,8 @@ int	check_map_border(t_main_menu *data)
 int	check_map(t_main_menu *data)
 {
   if (check_map_border(data) == 1)
+    return (1);
+  if (check_pos(data) == 1)
     return (1);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:30:04 2015 Antoine Baché
-** Last update Mon Dec 21 08:50:49 2015 Antoine Baché
+** Last update Mon Dec 21 09:04:24 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -100,7 +100,7 @@ int	start_multiplayer(t_main_menu *data)
     return (1);
   else if (data->game_mode == 3 && start_server(data) == 1)
     return (1);
-  if (check_map(data) == 1)
+  if (check_map(data) == 1 || check_pos_distant(data) == 1)
     return (1);
   return (0);
 }

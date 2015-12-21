@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Mon Dec 21 08:45:23 2015 Antoine Baché
+** Last update Mon Dec 21 09:04:54 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -239,6 +239,7 @@ void			load_map_info(t_main_menu *);
 int			check_map(t_main_menu *);
 int			load_map(t_main_menu *);
 int			checck_map_border(t_main_menu *);
+int			check_pos(t_main_menu *);
 
 /*
 ** /wolf/display_wolf.c
@@ -316,5 +317,6 @@ int			socket_send_double(int, double);
 void			set_player_pos(t_main_menu *);
 int			serv_distant_player(t_main_menu *);
 void			set_client_position(t_main_menu *);
+int			check_pos_distant(t_main_menu *);
 
 #endif /* !MY_H_ */

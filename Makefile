@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Sun Dec 20 19:18:08 2015 Antoine Baché
+## Last update Mon Dec 21 08:57:34 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -17,6 +17,7 @@ SRC=		src/main.c			\
 		src/wolf/wolf.c			\
 		src/wolf/minimap.c		\
 		src/wolf/check_ini.c		\
+		src/wolf/check_pos.c		\
 		src/wolf/load_ini.c		\
 		src/wolf/my_getnbr.c		\
 		src/wolf/display_wolf.c		\

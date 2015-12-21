@@ -23,9 +23,10 @@ Serveur
 	Gestion collisions joueur distantOK
 	Texture joueur distant
 	Chat
+	Position dynamique joueur distant
 Partie Obligatoire
        Fonction Go
-       Check posx et posy
+       Check pos Players		OK
        Check width et height
        Check si pos depart -> 1
        Check bordures map		OK
