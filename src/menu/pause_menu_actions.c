@@ -5,12 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:58:43 2015 Antoine Baché
-** Last update Tue Dec 15 01:00:46 2015 Antoine Baché
+** Last update Mon Dec 21 11:21:25 2015 Antoine Baché
 */
 
-
 #include "my.h"
-#include <unistd.h>
 
 int	pause_menu_actions(t_main_menu *menu)
 {

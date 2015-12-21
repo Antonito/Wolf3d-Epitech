@@ -5,12 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 13:10:28 2015 Antoine Baché
-** Last update Sat Dec 19 06:08:15 2015 Antoine Baché
+** Last update Mon Dec 21 11:21:02 2015 Antoine Baché
 */
 
-
 #include "my.h"
-#include <unistd.h>
 
 int	option_menu_actions(t_main_menu *menu)
 {

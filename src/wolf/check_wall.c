@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Mon Dec 21 09:44:43 2015 Antoine Baché
+** Last update Mon Dec 21 11:50:32 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -18,12 +18,12 @@ void		display_player(t_main_menu *data, double k, int i)
   t_color	*colors;
 
   demi_wall = WIN_Y / (2 * k);
-  start = WIN_X * (WIN_Y / 2) + i - (WIN_X * (demi_wall / 4));
+  start = WIN_X * (WIN_Y / 2) + i - (WIN_X * demi_wall);
   end = WIN_X * (WIN_Y / 2) + i + (WIN_X * demi_wall);
   colors = data->pix->pixels;
   while (start < end && start >= 0 && end < WIN_X * WIN_Y)
     {
-      colors[start].full = 0x22F1FF;
+      colors[start].full = PLAYER_COLOR;
       start += WIN_X;
     }
 }

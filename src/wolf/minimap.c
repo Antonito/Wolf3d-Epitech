@@ -5,11 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Mon Dec 21 09:29:10 2015 Antoine Baché
+** Last update Mon Dec 21 11:42:27 2015 Antoine Baché
 */
 
 #include "my.h"
-#include <stdio.h>
 
 void		my_square(t_main_menu *data, unsigned int color, int i, int j)
 {

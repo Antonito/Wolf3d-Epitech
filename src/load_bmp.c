@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Sun Dec 20 05:23:46 2015 Antoine Baché
+** Last update Mon Dec 21 11:56:22 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -39,7 +39,7 @@ int		load_bmp(t_texture *picture)
   int			fd;
   int			readed;
 
-  if ((fd = open("img/a.bmp", O_RDONLY)) == -1)
+  if ((fd = open("img/ExitPNG.bmp", O_RDONLY)) == -1)
     return (1);
   readed = read(fd, &header, sizeof(t_bmp_header));
   read(fd, &info_header, sizeof(t_bmp_info_header));

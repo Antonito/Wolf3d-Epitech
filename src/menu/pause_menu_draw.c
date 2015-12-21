@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:52:07 2015 Antoine Baché
-** Last update Tue Dec 15 00:55:59 2015 Antoine Baché
+** Last update Mon Dec 21 10:15:15 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -56,13 +56,22 @@ void		put_pause_selector(t_main_menu *menu)
     color[min].full = BLUE;
 }
 
+void	fill_black_alpha(t_main_menu *menu)
+{
+  t_color	*color;
+  int		i;
+
+  i = -1;
+  color = menu->pix->pixels;
+  while (++i < WIN_X * WIN_Y)
+    {
+      color[i].full = BLACK;
+    }
+}
+
 void	draw_pause_menu(t_main_menu *menu)
 {
-  /*  t_bunny_position	pos;
-
-  pos.x = 0;
-  pos.y = 10;*/
-  fill_black(menu);
+  fill_black_alpha(menu);
   pause_title(menu);
   sub_pause_titles(menu);
   put_pause_selector(menu);

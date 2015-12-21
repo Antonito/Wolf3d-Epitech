@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:34:44 2015 Antoine Baché
-** Last update Tue Dec 15 00:43:33 2015 Antoine Baché
+** Last update Mon Dec 21 11:22:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -58,10 +58,6 @@ void		put_option_selector(t_main_menu *menu)
 
 void	draw_option_menu(t_main_menu *menu)
 {
-  /*  t_bunny_position	pos;
-
-  pos.x = 0;
-  pos.y = 10;*/
   fill_black(menu);
   option_title(menu);
   sub_option_titles(menu);

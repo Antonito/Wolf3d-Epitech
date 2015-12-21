@@ -5,11 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 21:34:34 2015 Antoine Baché
-** Last update Tue Dec 15 11:15:47 2015 Antoine Baché
+** Last update Mon Dec 21 11:21:45 2015 Antoine Baché
 */
 
 #include "my.h"
-#include <stdio.h>
 
 t_bunny_response	key_pause(t_bunny_event_state state,
 			    t_bunny_keysym key, t_main_menu *menu)

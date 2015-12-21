@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Mon Dec 21 09:04:54 2015 Antoine Baché
+** Last update Mon Dec 21 10:15:59 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -21,6 +21,7 @@
 # define MAP_Y_OFFSET 400
 # define GROUND_COLOR 0x838383
 # define SKY_COLOR 0xFF8D55
+# define PLAYER_COLOR 0x22F1FF
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
@@ -209,6 +210,7 @@ void			pause_title(t_main_menu *);
 void			sub_pause_titles(t_main_menu *);
 void			put_pause_selector(t_main_menu *);
 void			draw_pause_menu(t_main_menu *);
+void			fill_black_alpha(t_main_menu *);
 
 /*
 ** Pause menu action (/menu/pause_menu_actions.c)
