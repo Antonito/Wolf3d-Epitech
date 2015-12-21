@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 19:17:34 2015 Antoine Baché
-** Last update Sun Dec 20 21:11:47 2015 Antoine Baché
+** Last update Mon Dec 21 18:30:17 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -70,12 +70,9 @@ int	client_distant_player(t_main_menu *data)
   return (0);
 }
 
-/*
-** Faire un placement par analyse de la carte
-*/
 void	set_client_position(t_main_menu *data)
 {
-  data->player.posx = 1;
-  data->player.posy = 2;
-  data->player.angle = 35;
+  data->player.posx = data->map_size.height - data->player2.posx - 1;
+  data->player.posy = ABS(data->map_size.width - data->player2.posy - 1);
+  data->player.angle = 180 + data->player2.angle;
 }

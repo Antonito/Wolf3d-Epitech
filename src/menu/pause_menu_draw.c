@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:52:07 2015 Antoine Baché
-** Last update Mon Dec 21 10:15:15 2015 Antoine Baché
+** Last update Mon Dec 21 18:40:21 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -65,7 +65,7 @@ void	fill_black_alpha(t_main_menu *menu)
   color = menu->pix->pixels;
   while (++i < WIN_X * WIN_Y)
     {
-      color[i].full = BLACK;
+      color[i].full = color[i].full & 0x2B2B35;
     }
 }
 
