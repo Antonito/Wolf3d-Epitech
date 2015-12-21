@@ -5,21 +5,27 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Mon Dec 21 08:41:16 2015 Antoine Baché
+** Last update Mon Dec 21 16:59:29 2015 Antoine Baché
 */
 
 #include "my.h"
 
 t_bunny_response	key_wolf(t_bunny_event_state state,
-			    t_bunny_keysym key,
-			     t_main_menu *data)
+				 UNUSED t_bunny_keysym key,
+				 t_main_menu *data)
 {
-  if (key == BKS_ESCAPE && state == GO_DOWN && pause_menu(data) == 2)
-    return (EXIT_ON_SUCCESS);
-  else if ((key == BKS_UP || key == BKS_DOWN) && state == GO_DOWN)
-    move_player(key, data);
-  else if (state == GO_DOWN && (key == BKS_RIGHT || key == BKS_LEFT))
-    rotate_player(key, data);
+  const bool   		*keys;
+
+  if (state == GO_DOWN)
+    {
+      keys = bunny_get_keyboard();
+      if (keys[BKS_ESCAPE] && pause_menu(data) == 2)
+	return (EXIT_ON_SUCCESS);
+      if (keys[BKS_UP] || keys[BKS_DOWN])
+	move_player(((keys[BKS_UP]) ? BKS_UP : BKS_DOWN), data);
+      if (keys[BKS_RIGHT] || keys[BKS_LEFT])
+	rotate_player(((keys[BKS_RIGHT]) ? BKS_RIGHT : BKS_LEFT), data);
+    }
   return (GO_ON);
 }
 
