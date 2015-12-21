@@ -24,9 +24,10 @@ Serveur
 	Texture joueur distant
 	Chat
 	Position dynamique joueur distant
+	Taille joueur (wall / 2)
 Partie Obligatoire
        Fonction Go
        Check pos Players		OK
        Check width et height
-       Check si pos depart -> 1
+       Check si pos depart -> 1		OK
        Check bordures map		OK

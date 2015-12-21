@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Sun Dec 20 21:17:52 2015 Antoine Baché
+** Last update Mon Dec 21 09:29:10 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -17,10 +17,12 @@ void		my_square(t_main_menu *data, unsigned int color, int i, int j)
   int		max_y;
   int		max_x;
   int		tmp;
+  int		tile;
 
-  if (((data->map_size.width - (i / data->map_size.tile) - 1)) ==
+  tile = (data->map_size.width * data->map_size.height) / 5;
+  if ((data->map_size.width - (i / tile) - 1) ==
       (int)data->player.posx &&
-      (data->map_size.height - (j / data->map_size.tile) - 1) ==
+      (data->map_size.height - (j / tile) - 1) ==
       (int)data->player.posy)
     color = 0x3A4567;
   j += MAP_X_OFFSET;
@@ -42,24 +44,26 @@ void		display_minimap(t_main_menu *data)
 {
   int		i;
   int		j;
+  int		tile;
 
   i = 0;
-  while (i <  data->map_size.height * data->map_size.tile)
+  tile = (data->map_size.width * data->map_size.height) / 5;
+  while (i <  data->map_size.height * tile)
     {
       j = 0;
-      while (j < data->map_size.width * data->map_size.tile)
+      while (j < data->map_size.width * tile)
 	{
-	  if (data->map[i / data->map_size.tile][j / data->map_size.tile]
+	  if (data->map[i / tile][j / tile]
 	      == 0)
 	    my_square(data, WHITE, i, j);
-	  else if (data->map[i / data->map_size.tile][j / data->map_size.tile]
+	  else if (data->map[i / tile][j / tile]
 		   == 1)
 	    my_square(data, BLACK, i, j);
-	  else if (data->map[i / data->map_size.tile][j / data->map_size.tile]
+	  else if (data->map[i / tile][j / tile]
 		   == 2)
 	    my_square(data, 0x22F1FF, i, j);
-	  j += data->map_size.tile;
+	  j += tile;
 	}
-      i += data->map_size.tile;
+      i += tile;
     }
 }
