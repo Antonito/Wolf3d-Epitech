@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Mon Dec 21 10:15:59 2015 Antoine Baché
+** Last update Mon Dec 21 14:46:41 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -51,7 +51,7 @@ typedef struct		s_infos
 
 typedef struct		s_texture
 {
-  unsigned int		*picture;
+  unsigned int		**picture;
   int			width;
   int			height;
 }			t_texture;

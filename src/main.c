@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Mon Dec 21 08:38:29 2015 Antoine Baché
+** Last update Mon Dec 21 15:52:09 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -28,13 +28,18 @@ t_bunny_response	key(t_bunny_event_state state,
 t_bunny_response	mainMenuLoop(t_main_menu *menu)
 {
   t_bunny_position	pos;
+  t_texture		*texture;
 
+  if ((texture = bunny_malloc(sizeof(t_texture))) == NULL)
+    return (EXIT_ON_ERROR);
   pos.x = 0;
   pos.y = 0;
   draw_menu(menu);
+  display_bmp(texture, menu);
   bunny_blit(&(menu->win->buffer),
 	     &(menu->pix->clipable), &pos);
   bunny_display(menu->win);
+  bunny_free(texture);
   return (GO_ON);
 }
 
@@ -50,7 +55,7 @@ int		main_menu(t_main_menu *menu)
   bunny_set_key_response((t_bunny_key)key);
   bunny_sound_volume(menu->music, 20 * menu->options.music);
   bunny_sound_play(menu->music);
-  printf("/*\n** Main Menu\n*/\n");
+  write(1, "/*\n** Main Menu\n*/\n", 21);
   bunny_loop(menu->win, 60, menu);
   bunny_delete_sound(menu->music);
   bunny_stop(menu->win);

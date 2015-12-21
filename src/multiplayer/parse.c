@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 06:53:09 2015 Antoine Baché
-** Last update Sun Dec 20 20:14:50 2015 Antoine Baché
+** Last update Mon Dec 21 12:18:32 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -37,6 +37,5 @@ int	load_ini_multi(t_main_menu *menu)
     return (1);
   if (parse_file(menu) == 1)
     return (1);
-  printf("Player POSY = %f\n", menu->player.posy);
   return (0);
 }
