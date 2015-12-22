@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Tue Dec 22 04:06:03 2015 Antoine Baché
+** Last update Tue Dec 22 05:06:49 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -41,7 +41,7 @@ void		display_wall(t_main_menu *data, double k, int i)
   colors = data->pix->pixels;
   while (start < end && start >= 0 && end < WIN_X * WIN_Y)
     {
-      colors[start].full = 0xCF3EFC;
+      colors[start].full = WALL_COLOR;
       start += WIN_X;
     }
 }

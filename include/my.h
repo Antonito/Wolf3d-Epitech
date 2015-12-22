@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 22 03:28:24 2015 Antoine Baché
+** Last update Tue Dec 22 05:06:40 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -28,6 +28,7 @@
 # define PACKED __attribute__((packed))
 # define ABS(x) ((x < 0) ? -x : x)
 # define BUFF_SIZE 4096
+# define WALL_COLOR 0xCF3EFC
 
 # include <sys/socket.h>
 # include <netdb.h>
