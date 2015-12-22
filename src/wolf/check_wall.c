@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Tue Dec 22 23:10:27 2015 Antoine Baché
+** Last update Tue Dec 22 23:48:50 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -48,25 +48,25 @@ void		display_wall(t_main_menu *data, double k, int i)
 
 void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
 {
-  double	x;
-  double	y;
+  t_vector	hit;
   double	k;
 
+  hit.y = 0;
+  hit.x = 0;
   k = 0;
-  x = 0;
-  y = 0;
-  while ((int)x < data->map_size.height && (int)y < data->map_size.width)
+  while ((int)hit.x < data->map_size.height && (int)hit.y
+	 < data->map_size.width)
     {
-      x = data->player.posx + (k * vec->x);
-      y = data->player.posy + (k * vec->y);
-      if (data->map[data->map_size.height - (int)x - 1]
-	  [data->map_size.width - (int)y - 1] == 1 && k >= 1)
+      hit.x = data->player.posx + (k * vec->x);
+      hit.y = data->player.posy + (k * vec->y);
+      if (data->map[data->map_size.height - (int)hit.x - 1]
+	  [data->map_size.width - (int)hit.y - 1] == 1 && k >= 1)
 	{
-	  display_wall(data, k, i);
+	  display_texture_wall(data, k, i, &hit);
 	  break;
 	}
-      if (data->map[data->map_size.height - (int)x - 1]
-	  [data->map_size.width - (int)y - 1] == 2 && k >= 1)
+      if (data->map[data->map_size.height - (int)hit.x - 1]
+	  [data->map_size.width - (int)hit.y - 1] == 2 && k >= 1)
 	{
 	  display_player(data, k, i);
 	  break;

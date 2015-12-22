@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 22 19:07:57 2015 Antoine Baché
+** Last update Tue Dec 22 23:50:23 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -157,7 +157,8 @@ void			option_menu_texture_disp(t_main_menu *);
 int			pause_menu_texture(t_main_menu *);
 void			pause_menu_texture_disp(t_main_menu *);
 int			game_texture(t_main_menu *);
-void			display_texture_wall(t_main_menu *, double, int);
+void			display_texture_wall(t_main_menu *, double, int,
+					     t_vector *);
 int			bmp_error(void);
 int			prepare_texture(t_main_menu *);
 
