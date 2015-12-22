@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Mon Dec 21 11:50:32 2015 Antoine Baché
+** Last update Tue Dec 22 04:06:03 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -62,7 +62,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
       if (data->map[data->map_size.height - (int)x - 1]
 	  [data->map_size.width - (int)y - 1] == 1 && k >= 1)
 	{
-	  display_wall(data, k, i);
+	  display_texture_wall(data, k, i);
 	  break;
 	}
       if (data->map[data->map_size.height - (int)x - 1]

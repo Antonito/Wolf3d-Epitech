@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Mon Dec 21 23:48:38 2015 Antoine Baché
+## Last update Tue Dec 22 03:28:01 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -35,6 +35,8 @@ SRC=		src/main.c			\
 		src/texture/main_menu_texture.c	\
 		src/texture/opt_menu_texture.c	\
 		src/texture/game_menu_texture.c	\
+		src/texture/display_wall.c	\
+		src/texture/prepare_texture.c	\
 		src/multiplayer/my_strdup.c	\
 		src/multiplayer/client.c	\
 		src/multiplayer/multiplayer.c	\

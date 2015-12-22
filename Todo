@@ -4,7 +4,7 @@ Menu principal
 	Musique On/Off			OK
      Quitter				OK
 Menu pause
-	Gérer transparence !
+	Gérer transparence !		OK
      Reprendre				OK
      Quitter				OK
 Musique menu				OK
@@ -15,7 +15,7 @@ Mini-map				OK
 	Resize
 Collision
 	Stop				OK
-	Glisser
+	Glisser				OK
 Serveur
 	Connexion			OK
 	Host				OK

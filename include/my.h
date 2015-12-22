@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Mon Dec 21 23:58:48 2015 Antoine Baché
+** Last update Tue Dec 22 03:28:24 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -153,7 +153,10 @@ int			option_menu_texture(t_main_menu *);
 void			option_menu_texture_disp(t_main_menu *);
 int			pause_menu_texture(t_main_menu *);
 void			pause_menu_texture_disp(t_main_menu *);
-
+int			game_texture(t_main_menu *);
+void			display_texture_wall(t_main_menu *, double, int);
+int			bmp_error(void);
+int			prepare_texture(t_main_menu *);
 
 /*
 ** Main menu functions (main.c)
@@ -215,7 +218,6 @@ t_bunny_response	key_pause(t_bunny_event_state,
 /*
 ** Draw pause menu (/menu/pause_menu_draw.c)
 */
-void			pause_title(t_main_menu *);
 void			sub_pause_titles(t_main_menu *);
 void			put_pause_selector(t_main_menu *);
 void			draw_pause_menu(t_main_menu *);

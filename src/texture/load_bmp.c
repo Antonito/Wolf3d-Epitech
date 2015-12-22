@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Mon Dec 21 21:33:35 2015 Antoine Baché
+** Last update Tue Dec 22 02:47:34 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -55,6 +55,12 @@ void		display_bmp(t_main_menu *data, int index, int off_x, int off_y)
     }
 }
 
+int	bmp_error(void)
+{
+  write(2, "Image is not a bmp\n", 19);
+  return (1);
+}
+
 int		load_bmp(t_texture *picture, char *file)
 {
   t_bmp_header		header;
@@ -67,10 +73,7 @@ int		load_bmp(t_texture *picture, char *file)
   read(fd, &header, sizeof(t_bmp_header));
   read(fd, &info_header, sizeof(t_bmp_info_header));
   if (header.type !=0x4D42)
-    {
-      write(2, "Image is not a bmp\n", 19);
-      return (1);
-    }
+    return (bmp_error());
   if ((picture->picture = bunny_malloc(sizeof(unsigned int *)
 				       * ABS(info_header.height))) == NULL)
     return (1);

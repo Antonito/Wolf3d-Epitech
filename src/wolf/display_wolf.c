@@ -5,36 +5,36 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 18:15:07 2015 Antoine Baché
-** Last update Sat Dec 19 02:22:11 2015 Antoine Baché
+** Last update Tue Dec 22 04:38:47 2015 Antoine Baché
 */
 
 #include "my.h"
 
-void		set_sky(t_main_menu *menu)
+void		set_sky(t_main_menu *data)
 {
   int		i;
   t_color	*colors;
 
   i = -1;
-  colors = menu->pix->pixels;
+  colors = data->pix->pixels;
   while (++i < (WIN_X * WIN_Y) / 2)
     colors[i].full = SKY_COLOR;
 }
 
-void		set_ground(t_main_menu *menu)
+void		set_ground(t_main_menu *data)
 {
   int		i;
   t_color	*colors;
 
   i = (WIN_X * WIN_Y) / 2 - 1;
-  colors = menu->pix->pixels;
+  colors = data->pix->pixels;
   while (++i < WIN_X * WIN_Y)
     colors[i].full = GROUND_COLOR;
 }
 
-void	display_wolf(t_main_menu *menu)
+void	display_wolf(t_main_menu *data)
 {
-  set_sky(menu);
-  set_ground(menu);
-  check_wall(menu);
+  set_sky(data);
+  set_ground(data);
+  check_wall(data);
 }

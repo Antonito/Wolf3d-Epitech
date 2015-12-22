@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:36:04 2015
-** Last update Mon Dec 21 22:44:40 2015 Antoine Baché
+** Last update Tue Dec 22 02:35:11 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -40,28 +40,12 @@ void	sub_titles(t_main_menu *menu)
 
 void		put_selector(t_main_menu *menu)
 {
-  t_color	*color;
-  int		min;
-  int		max;
-
-  color = menu->pix->pixels;
   if (menu->select == 1)
-    {
-      min = WIN_X * (MAIN_TITLE + SPACE_TITLE);
-      max = WIN_X * (MAIN_TITLE + SPACE_TITLE + SUB_TITLE);
-    }
+    display_bmp(menu, 4, 15, 175);
   else if (menu->select == 2)
-    {
-      min = WIN_X * (MAIN_TITLE + SPACE_TITLE) * 2 - SPACE_TITLE * WIN_X;
-      max = WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 2);
-    }
+    display_bmp(menu, 4, 15, 325);
   else
-    {
-      min = WIN_X * (MAIN_TITLE + SPACE_TITLE) * 3 - SPACE_TITLE * WIN_X * 2;
-      max = WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 3);
-    }
-  while (min++ < max)
-    color[min].full = RED;
+    display_bmp(menu, 4, 15, 475);
 }
 
 void		fill_black(t_main_menu *menu)

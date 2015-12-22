@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:34:44 2015 Antoine Baché
-** Last update Mon Dec 21 22:44:01 2015 Antoine Baché
+** Last update Tue Dec 22 02:36:48 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -37,23 +37,10 @@ void	sub_option_titles(t_main_menu *menu)
 
 void		put_option_selector(t_main_menu *menu)
 {
-  t_color	*color;
-  int		min;
-  int		max;
-
-  color = menu->pix->pixels;
   if (menu->options.select == 1)
-    {
-      min = WIN_X * (MAIN_TITLE + SPACE_TITLE);
-      max = WIN_X * (MAIN_TITLE + SPACE_TITLE + SUB_TITLE);
-    }
+    display_bmp(menu, 4, 15, 175);
   else if (menu->options.select == 2)
-    {
-      min = WIN_X * (MAIN_TITLE + SPACE_TITLE) * 2 - SPACE_TITLE * WIN_X;
-      max = WIN_X * (MAIN_TITLE + (SPACE_TITLE + SUB_TITLE) * 2);
-    }
-  while (min++ < max)
-    color[min].full = GREEN;
+    display_bmp(menu, 4, 15, 325);
 }
 
 void	draw_option_menu(t_main_menu *menu)

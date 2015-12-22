@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Mon Dec 21 23:44:30 2015 Antoine Baché
+** Last update Tue Dec 22 03:41:40 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -40,6 +40,7 @@ t_bunny_response	OptionMenuLoop(t_main_menu *menu)
 
 int		option_menu(t_main_menu *menu)
 {
+  prepare_texture(menu);
   bunny_set_loop_main_function((t_bunny_loop)OptionMenuLoop);
   bunny_set_key_response((t_bunny_key)key_option);
   menu->select = 1;

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:04:55 2015 Antoine Baché
-** Last update Sun Dec 20 05:08:55 2015 Antoine Baché
+** Last update Tue Dec 22 03:38:38 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -20,6 +20,7 @@ t_main_menu	*prepare_main()
   data->toggle_pause = 0;
   data->options.select = 1;
   data->options.music = 1;
+  data->texture = NULL;
   prepare_infos(&data->infos);
   return (data);
 }
