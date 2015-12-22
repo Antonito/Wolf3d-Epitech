@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 21 22:37:53 2015 Antoine Baché
-** Last update Tue Dec 22 02:28:07 2015 Antoine Baché
+** Last update Tue Dec 22 21:12:49 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -14,7 +14,9 @@ int	pause_menu_texture(t_main_menu *menu)
 {
   if (load_bmp(menu->texture[0], "img/option_menu/MainMenu.bmp") == 1 ||
       load_bmp(menu->texture[1], "img/main_menu/Play.bmp") == 1 ||
-      load_bmp(menu->texture[2], "img/cursor.bmp") == 1)
+      load_bmp(menu->texture[2], "img/cursor.bmp") == 1 ||
+      load_bmp(menu->texture[3], "img/option_menu/MainMenu.bmp") == 1 ||
+      load_bmp(menu->texture[4], "img/option_menu/MainMenu.bmp") == 1)
     return (1);
   return (0);
 }

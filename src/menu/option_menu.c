@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:34:44 2015 Antoine Baché
-** Last update Tue Dec 22 02:36:48 2015 Antoine Baché
+** Last update Tue Dec 22 21:24:16 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -48,6 +48,6 @@ void	draw_option_menu(t_main_menu *menu)
   fill_black(menu);
   option_title(menu);
   sub_option_titles(menu);
-  put_option_selector(menu);
   option_menu_texture_disp(menu);
+  put_option_selector(menu);
 }

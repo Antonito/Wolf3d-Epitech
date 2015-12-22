@@ -5,10 +5,22 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 22 03:27:23 2015 Antoine Baché
-** Last update Tue Dec 22 03:41:08 2015 Antoine Baché
+** Last update Tue Dec 22 21:19:13 2015 Antoine Baché
 */
 
 #include "my.h"
+
+void	free_texture(t_texture *pic)
+{
+  int	j;
+
+  j = -1;
+  while (++j < pic->height)
+    if (pic->picture[j] != NULL)
+      free(pic->picture[j]);
+  if (pic->picture != NULL)
+    free(pic->picture);
+}
 
 int	prepare_texture(t_main_menu *data)
 {
@@ -16,8 +28,14 @@ int	prepare_texture(t_main_menu *data)
 
   i = -1;
   if (data->texture != NULL)
-    while (++i < 5)
-      bunny_free(data->texture[i]);
+    {
+      while (++i < 5)
+	{
+	  free_texture(data->texture[i]);
+	  bunny_free(data->texture[i]);
+	}
+      bunny_free(data->texture);
+    }
   if ((data->texture = bunny_malloc(sizeof(t_texture *) * 5)) == NULL)
     return (1);
   i = -1;

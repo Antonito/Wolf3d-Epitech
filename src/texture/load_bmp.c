@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Tue Dec 22 02:47:34 2015 Antoine Baché
+** Last update Tue Dec 22 21:08:26 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -63,29 +63,27 @@ int	bmp_error(void)
 
 int		load_bmp(t_texture *picture, char *file)
 {
-  t_bmp_header		header;
-  t_bmp_info_header	info_header;
   int			fd;
   int			i;
 
   if ((fd = open(file, O_RDONLY)) == -1)
     return (1);
-  read(fd, &header, sizeof(t_bmp_header));
-  read(fd, &info_header, sizeof(t_bmp_info_header));
-  if (header.type !=0x4D42)
+  read(fd, &picture->head, sizeof(t_bmp_header));
+  read(fd, &picture->info, sizeof(t_bmp_info_header));
+  if (picture->head.type !=0x4D42)
     return (bmp_error());
-  if ((picture->picture = bunny_malloc(sizeof(unsigned int *)
-				       * ABS(info_header.height))) == NULL)
+  if ((picture->picture = malloc(sizeof(unsigned int *)
+				       * ABS(picture->info.height))) == NULL)
     return (1);
   i = -1;
-  while (++i < ABS(info_header.height))
+  while (++i < ABS(picture->info.height))
     {
-      if ((picture->picture[i] = bunny_malloc(sizeof(unsigned int)
-				       * ABS(info_header.width))) == NULL)
-    return (1);
-      read(fd, picture->picture[i], ABS(info_header.width) * 4);
+      if ((picture->picture[i] = malloc(sizeof(unsigned int)
+				       * ABS(picture->info.width))) == NULL)
+	return (1);
+      read(fd, picture->picture[i], ABS(picture->info.width) * 4);
     }
-  picture->width = ABS(info_header.width);
-  picture->height = ABS(info_header.height);
-  return (0);
+  picture->width = ABS(picture->info.width);
+  picture->height = ABS(picture->info.height);
+  return ((close(fd) == 1) ? 1 : 0);
 }

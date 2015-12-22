@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 21:34:34 2015 Antoine Baché
-** Last update Tue Dec 22 04:47:09 2015 Antoine Baché
+** Last update Tue Dec 22 19:29:35 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -48,7 +48,7 @@ int		pause_menu(t_main_menu *menu)
   bunny_set_loop_main_function((t_bunny_loop)PauseMenuLoop);
   bunny_set_key_response((t_bunny_key)key_pause);
   menu->select = 1;
-  if (pause_menu_texture(menu) == 1)
+  if (prepare_texture(menu) == 1 || pause_menu_texture(menu) == 1)
     return (1);
   bunny_loop(menu->win, 60, menu);
   if (menu->toggle_pause == 1)
@@ -57,7 +57,7 @@ int		pause_menu(t_main_menu *menu)
       return (2);
     }
   menu->toggle_pause = 0;
-  if (game_texture(menu) == 1)
+  if (prepare_texture(menu) == 1 || game_texture(menu) == 1)
     return (1);
   bunny_set_loop_main_function((t_bunny_loop)wolfloop);
   bunny_set_key_response((t_bunny_key)key_wolf);

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Tue Dec 22 04:56:08 2015 Antoine Baché
+** Last update Tue Dec 22 20:55:51 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -43,15 +43,14 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
 
 int	main_menu(t_main_menu *menu)
 {
+  set_max_heap_size(20);
   if ((menu->win = bunny_start(WIN_X, WIN_Y, 0, "Wolf3D")) == NULL)
     return (ERROR_MAIN_WIN);
   else if ((menu->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) == NULL)
     return (ERROR_MAIN_PIX);
   else if ((menu->music = bunny_load_music("music/main.ogg")) == NULL)
     return (ERROR_MAIN_MUSIC);
-  else if (prepare_texture(menu) == 1)
-    return (1);
-  if (main_menu_texture(menu) == 1)
+  else if (prepare_texture(menu) == 1 || main_menu_texture(menu) == 1)
     return (1);
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);
@@ -61,7 +60,7 @@ int	main_menu(t_main_menu *menu)
   bunny_delete_sound(menu->music);
   bunny_stop(menu->win);
   bunny_delete_clipable(&menu->pix->clipable);
-  /*bunny_free(menu);*/
+  bunny_free(menu);
   return (0);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Tue Dec 22 04:49:55 2015 Antoine Baché
+** Last update Tue Dec 22 20:43:18 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -15,12 +15,18 @@ t_bunny_response	key_wolf(t_bunny_event_state state,
 				 t_main_menu *data)
 {
   const bool   		*keys;
+  int			save;
 
   if (state == GO_DOWN)
     {
       keys = bunny_get_keyboard();
-      if (keys[BKS_ESCAPE] && pause_menu(data) == 2)
-	return (EXIT_ON_SUCCESS);
+      if (keys[BKS_ESCAPE])
+	{
+	  if ((save = pause_menu(data)) == 2)
+	    return (EXIT_ON_SUCCESS);
+	  else if (save == 1)
+	    return (EXIT_ON_ERROR);
+	}
       if (keys[BKS_UP] || keys[BKS_DOWN])
 	move_player(((keys[BKS_UP]) ? BKS_UP : BKS_DOWN), data);
       if (keys[BKS_RIGHT] || keys[BKS_LEFT])
@@ -53,7 +59,7 @@ int	wolf(t_main_menu *menu)
   bunny_delete_sound(menu->music);
   if ((menu->music = bunny_load_music("music/game.ogg")) == NULL)
     return (1);
-  if (game_texture(menu) == 1)
+  if (prepare_texture(menu) == 1 || game_texture(menu) == 1)
     return (1);
   bunny_sound_volume(menu->music, 20 * menu->options.music);
   bunny_sound_play(menu->music);
@@ -66,7 +72,7 @@ int	wolf(t_main_menu *menu)
     return (1);
   bunny_sound_volume(menu->music, 20 * menu->options.music);
   bunny_sound_play(menu->music);
-  if (main_menu_texture(menu) == 1)
+  if (prepare_texture(menu) == 1 || main_menu_texture(menu) == 1)
     return (1);
   bunny_set_loop_main_function((t_bunny_loop)mainMenuLoop);
   bunny_set_key_response((t_bunny_key)key);

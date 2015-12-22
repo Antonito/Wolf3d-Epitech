@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 22 05:06:40 2015 Antoine Baché
+** Last update Tue Dec 22 19:07:57 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -50,13 +50,6 @@ typedef struct		s_infos
   char			*map;
 }			t_infos;
 
-typedef struct		s_texture
-{
-  unsigned int		**picture;
-  int			width;
-  int			height;
-}			t_texture;
-
 typedef struct	       	s_bmp_info_header
 {
   PACKED unsigned int	struct_size;
@@ -79,6 +72,15 @@ typedef struct		s_bmp_header
   PACKED unsigned int	reserved1;
   PACKED unsigned int	offset;
 }			t_bmp_header;
+
+typedef struct		s_texture
+{
+  unsigned int		**picture;
+  int			width;
+  int			height;
+  t_bmp_header		head;
+  t_bmp_info_header	info;
+}			t_texture;
 
 typedef struct		s_vector
 {
@@ -332,5 +334,7 @@ void			set_player_pos(t_main_menu *);
 int			serv_distant_player(t_main_menu *);
 void			set_client_position(t_main_menu *);
 int			check_pos_distant(t_main_menu *);
+void			free_texture(t_texture *);
+void			set_max_heap_size(size_t);
 
 #endif /* !MY_H_ */

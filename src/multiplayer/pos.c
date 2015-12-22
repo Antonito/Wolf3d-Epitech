@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 10:36:08 2015 Antoine Baché
-** Last update Sun Dec 20 20:54:27 2015 Antoine Baché
+** Last update Tue Dec 22 17:05:00 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -14,8 +14,8 @@ void	set_player_pos(t_main_menu *data)
 {
   if (((int)data->player2.oldposx != (int)data->player.posx) ||
       ((int)data->player2.oldposy != (int)data->player.posy))
-  data->map[data->map_size.width - (int)data->player2.oldposx - 1]
-    [data->map_size.height - (int)data->player2.oldposy - 1] = 0;
+    data->map[data->map_size.width - (int)data->player2.oldposx - 1]
+      [data->map_size.height - (int)data->player2.oldposy - 1] = 0;
   data->map[data->map_size.width - (int)data->player2.posx - 1]
     [data->map_size.height - (int)data->player2.posy - 1] = 2;
 }

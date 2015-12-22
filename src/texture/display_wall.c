@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 22 00:24:43 2015 Antoine Baché
-** Last update Tue Dec 22 04:36:36 2015 Antoine Baché
+** Last update Tue Dec 22 21:13:58 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -13,7 +13,10 @@
 int		game_texture(t_main_menu *menu)
 {
   if (load_bmp(menu->texture[0], "img/wall.bmp") == 1 ||
-      load_bmp(menu->texture[1], "img/gun.bmp") == 1)
+      load_bmp(menu->texture[1], "img/gun.bmp") == 1 ||
+      load_bmp(menu->texture[2], "img/wall.bmp") == 1 ||
+      load_bmp(menu->texture[3], "img/wall.bmp") == 1 ||
+      load_bmp(menu->texture[4], "img/wall.bmp") == 1)
     return (1);
   return (0);
 }

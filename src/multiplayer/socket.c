@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 02:32:00 2015 Antoine Baché
-** Last update Sun Dec 20 19:49:40 2015 Antoine Baché
+** Last update Tue Dec 22 15:45:20 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -13,6 +13,7 @@
 double		socket_r_double(int fd)
 {
   double	nb;
+
   if (recv(fd, &nb, sizeof(double), 0) == -1)
     return (0);
   return (nb);

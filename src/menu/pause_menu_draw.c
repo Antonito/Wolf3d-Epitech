@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 15 00:52:07 2015 Antoine Baché
-** Last update Tue Dec 22 02:50:00 2015 Antoine Baché
+** Last update Tue Dec 22 21:26:49 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -27,9 +27,9 @@ void	sub_pause_titles(t_main_menu *menu)
 void		put_pause_selector(t_main_menu *menu)
 {
   if (menu->options.select == 1)
-    display_bmp(menu, 4, 15, 175);
+    display_bmp(menu, 2, 15, 175);
   else if (menu->options.select == 2)
-    display_bmp(menu, 4, 15, 325);
+    display_bmp(menu, 2, 15, 325);
 }
 
 void	fill_black_alpha(t_main_menu *menu)
