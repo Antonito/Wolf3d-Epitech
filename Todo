@@ -24,6 +24,7 @@ Serveur
 	Texture joueur distant
 	Chat
 	Position dynamique joueur distant
+	Mode PacMan ?
 Partie Obligatoire
        Fonction Go			OK
        Check pos Players		OK

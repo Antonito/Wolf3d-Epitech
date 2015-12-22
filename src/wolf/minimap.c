@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 23:50:10 2015 Antoine Baché
-** Last update Mon Dec 21 11:42:27 2015 Antoine Baché
+** Last update Tue Dec 22 22:19:32 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -45,6 +45,7 @@ void		display_minimap(t_main_menu *data)
   int		j;
   int		tile;
 
+  return ;
   i = 0;
   tile = (data->map_size.width * data->map_size.height) / 5;
   while (i <  data->map_size.height * tile)
