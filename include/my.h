@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Wed Dec 23 17:43:03 2015 Antoine Baché
+** Last update Wed Dec 23 21:49:28 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -50,6 +50,7 @@ typedef struct		s_infos
   char			*address;
   int			port;
   char			*map;
+  char			pacman;
 }			t_infos;
 
 typedef struct	       	s_bmp_info_header
