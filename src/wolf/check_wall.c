@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Tue Dec 22 23:48:50 2015 Antoine Baché
+** Last update Wed Dec 23 15:42:48 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -50,10 +50,12 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
 {
   t_vector	hit;
   double	k;
+  int		offset;
 
   hit.y = 0;
   hit.x = 0;
   k = 0;
+  offset = 0;
   while ((int)hit.x < data->map_size.height && (int)hit.y
 	 < data->map_size.width)
     {
@@ -71,6 +73,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
 	  display_player(data, k, i);
 	  break;
 	}
+      offset++;
       k += 0.001;
     }
 }

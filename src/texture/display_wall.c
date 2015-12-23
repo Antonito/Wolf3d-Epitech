@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 22 00:24:43 2015 Antoine Baché
-** Last update Wed Dec 23 10:59:58 2015 Antoine Baché
+** Last update Wed Dec 23 16:07:35 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -29,18 +29,25 @@ void		display_texture_wall(t_main_menu *data, double k,
   int		end;
   t_color	*colors;
   int		j;
+  t_vector	v;
 
   demi_wall = WIN_Y / (2 * k);
   start = WIN_X * (WIN_Y / 2) + i - (WIN_X * demi_wall);
   end = WIN_X * (WIN_Y / 2) + i + (WIN_X * demi_wall);
   colors = data->pix->pixels;
-  j = i;
-  while (start < end && start >= 0 && end < WIN_X * WIN_Y)
+  v.y = ABS((hit->y - (int)hit->y) - 0.5);
+  v.x = ABS((hit->x - (int)hit->x) - 0.5);
+  j = 0;
+  while (start < end && start >= 0 && end < WIN_X * WIN_Y && ++j)
     {
-      colors[start].full =
-	data->texture[0]->picture[(int)(WIN_X + 256 * (hit->y - (int)hit->y)) % 256]
-	[WIN_X % 256];
+      if (v.x > v.y)
+	colors[start].full =
+	  data->texture[0]->picture[(int)(256 * (hit->y - (int)hit->y)) % 256]
+	  [((256 * j) / (demi_wall * 2)) % 256];
+      else
+	colors[start].full =
+	  data->texture[0]->picture[(int)(256 * (hit->y - (int)hit->y)) % 256]
+	  [((256 * j) / (demi_wall * 2)) % 256];
       start += WIN_X;
-      j++;
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Wed Dec 23 12:42:12 2015 Antoine Baché
+** Last update Wed Dec 23 15:49:30 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -26,6 +26,7 @@
 # define WALL_COLOR 0xCF3EFC
 # define PLAYER_COLOR 0x22F1FF
 # define PAUSE_MENU_COLOR 0x2B2B35
+# define UNIT_MAP (WIN_Y / 50)
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
@@ -162,6 +163,7 @@ void			display_texture_wall(t_main_menu *, double, int,
 					     t_vector *);
 int			bmp_error(void);
 int			prepare_texture(t_main_menu *);
+void			loop_texture(t_main_menu *, int);
 
 /*
 ** Main menu functions (main.c)
