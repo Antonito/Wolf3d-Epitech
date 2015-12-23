@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 23:43:29 2015 Antoine Baché
-** Last update Wed Dec 23 16:15:31 2015 Antoine Baché
+** Last update Wed Dec 23 16:40:15 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -70,7 +70,7 @@ void		get_wall_pos(t_vector *vec, t_main_menu *data, int i)
       if (data->map[data->map_size.height - (int)hit.x - 1]
 	  [data->map_size.width - (int)hit.y - 1] == 2 && k >= 1)
 	{
-	  display_player(data, k, i);
+	  display_texture_player(data, WIN_Y / (2 * k), i, &hit);
 	  break;
 	}
       offset++;
