@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 21:34:34 2015 Antoine Baché
-** Last update Tue Dec 22 19:29:35 2015 Antoine Baché
+** Last update Wed Dec 23 09:38:59 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -30,15 +30,11 @@ t_bunny_response	key_pause(t_bunny_event_state state,
 
 t_bunny_response	PauseMenuLoop(t_main_menu *menu)
 {
-  t_bunny_position	pos;
-
-  pos.x = 0;
-  pos.y = 0;
   if (menu->toggle_pause == 1)
     return (EXIT_ON_SUCCESS);
   draw_pause_menu(menu);
   bunny_blit(&(menu->win->buffer),
-	     &(menu->pix->clipable), &pos);
+	     &(menu->pix->clipable), 0);
   bunny_display(menu->win);
   return (GO_ON);
 }

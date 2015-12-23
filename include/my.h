@@ -5,12 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Tue Dec 22 23:50:23 2015 Antoine Baché
+** Last update Wed Dec 23 09:27:02 2015 Antoine Baché
 */
 
 #ifndef MY_H_
 # define MY_H_
 # define UNUSED __attribute__((unused))
+# define PACKED __attribute__((packed))
 # define WIN_X 800
 # define WIN_Y 600
 # define MAIN_TITLE 150
@@ -19,16 +20,16 @@
 # define SQUARE_SIZE 18
 # define MAP_X_OFFSET 2
 # define MAP_Y_OFFSET 400
+# define BUFF_SIZE 4096
 # define GROUND_COLOR 0x838383
 # define SKY_COLOR 0xFF8D55
+# define WALL_COLOR 0xCF3EFC
 # define PLAYER_COLOR 0x22F1FF
+# define PAUSE_MENU_COLOR 0x2B2B35
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
-# define PACKED __attribute__((packed))
 # define ABS(x) ((x < 0) ? -x : x)
-# define BUFF_SIZE 4096
-# define WALL_COLOR 0xCF3EFC
 
 # include <sys/socket.h>
 # include <netdb.h>

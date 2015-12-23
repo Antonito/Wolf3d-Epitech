@@ -1,33 +1,9 @@
-Menu principal
-     Jouer				OK
-     Options				OK
-	Musique On/Off			OK
-     Quitter				OK
-Menu pause
-	Gérer transparence !		OK
-     Reprendre				OK
-     Quitter				OK
-Musique menu				OK
-Bruit de pas
-Mini-map				OK
+Mini-map
 	Fond minimap
-	Fixer déplacement		OK
+	Fixer déplacement
 	Resize
-Collision
-	Stop				OK
-	Glisser				OK
 Serveur
-	Connexion			OK
-	Host				OK
-	Affichage joueur distant	OK
-	Gestion collisions joueur distantOK
 	Texture joueur distant
 	Chat
 	Position dynamique joueur distant
 	Mode PacMan ?
-Partie Obligatoire
-       Fonction Go			OK
-       Check pos Players		OK
-       Check width et height
-       Check si pos depart -> 1		OK
-       Check bordures map		OK

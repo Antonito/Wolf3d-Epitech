@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:00:38 2015 Antoine Baché
-** Last update Mon Dec 21 08:23:48 2015 Antoine Baché
+** Last update Wed Dec 23 09:45:34 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -75,5 +75,6 @@ int	load_ini(t_main_menu *data)
     return (1);
   if (check_map(data) == 1)
     return (1);
+  bunny_delete_ini(data->file);
   return (0);
 }

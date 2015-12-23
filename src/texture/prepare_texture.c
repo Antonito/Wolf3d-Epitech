@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 22 03:27:23 2015 Antoine Baché
-** Last update Tue Dec 22 21:19:13 2015 Antoine Baché
+** Last update Wed Dec 23 09:40:03 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -17,9 +17,9 @@ void	free_texture(t_texture *pic)
   j = -1;
   while (++j < pic->height)
     if (pic->picture[j] != NULL)
-      free(pic->picture[j]);
+      bunny_free(pic->picture[j]);
   if (pic->picture != NULL)
-    free(pic->picture);
+    bunny_free(pic->picture);
 }
 
 int	prepare_texture(t_main_menu *data)

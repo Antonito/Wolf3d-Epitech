@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Tue Dec 22 20:55:51 2015 Antoine Baché
+** Last update Wed Dec 23 09:56:12 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -29,14 +29,10 @@ t_bunny_response	key(t_bunny_event_state state,
 
 t_bunny_response	mainMenuLoop(t_main_menu *menu)
 {
-  t_bunny_position	pos;
-
-  pos.x = 0;
-  pos.y = 0;
   draw_menu(menu);
   main_menu_texture_disp(menu);
   bunny_blit(&(menu->win->buffer),
-	     &(menu->pix->clipable), &pos);
+	     &(menu->pix->clipable), 0);
   bunny_display(menu->win);
   return (GO_ON);
 }

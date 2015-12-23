@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 01:07:09 2015 Antoine Baché
-** Last update Tue Dec 22 21:08:26 2015 Antoine Baché
+** Last update Wed Dec 23 09:40:26 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -72,13 +72,13 @@ int		load_bmp(t_texture *picture, char *file)
   read(fd, &picture->info, sizeof(t_bmp_info_header));
   if (picture->head.type !=0x4D42)
     return (bmp_error());
-  if ((picture->picture = malloc(sizeof(unsigned int *)
+  if ((picture->picture = bunny_malloc(sizeof(unsigned int *)
 				       * ABS(picture->info.height))) == NULL)
     return (1);
   i = -1;
   while (++i < ABS(picture->info.height))
     {
-      if ((picture->picture[i] = malloc(sizeof(unsigned int)
+      if ((picture->picture[i] = bunny_malloc(sizeof(unsigned int)
 				       * ABS(picture->info.width))) == NULL)
 	return (1);
       read(fd, picture->picture[i], ABS(picture->info.width) * 4);

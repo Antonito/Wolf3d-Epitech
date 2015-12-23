@@ -5,12 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:04:55 2015 Antoine Baché
-** Last update Tue Dec 22 03:38:38 2015 Antoine Baché
+** Last update Wed Dec 23 09:23:10 2015 Antoine Baché
 */
 
 #include "my.h"
 
-t_main_menu	*prepare_main()
+t_main_menu	*prepare_main(void)
 {
   t_main_menu	*data;
 

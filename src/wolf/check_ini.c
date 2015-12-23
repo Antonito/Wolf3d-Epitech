@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Thu Dec 17 12:02:32 2015 Antoine Baché
-** Last update Tue Dec 22 22:10:34 2015 Antoine Baché
+** Last update Wed Dec 23 09:58:44 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -37,6 +37,11 @@ int	check_map(t_main_menu *data)
     return (1);
   if (check_pos(data) == 1)
     return (1);
+  if (data->map_size.width - data->map_size.height != 0)
+    {
+      write(2, "./wolf3d: map must be a square\n", 31);
+      return (1);
+    }
   return (0);
 }
 

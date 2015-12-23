@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Dec 18 20:21:19 2015 Antoine Baché
-** Last update Sun Dec 20 18:39:38 2015 Antoine Baché
+** Last update Wed Dec 23 09:47:44 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -52,10 +52,11 @@ double		my_getdouble(char *str)
   if (str[i] == '\0')
     return (0);
   while (str[i] != '\0' && ++i && ++k);
-  if ((tmp = malloc(my_strlen(str) + 1)) == NULL)
+  if ((tmp = bunny_malloc(my_strlen(str) + 1)) == NULL)
     return (1);
   remove_comma(str, tmp);
   k -= 1;
   res = ((k != 0) ? (double)my_getnbr(tmp) / my_power(10, k) : my_getnbr(tmp));
+  bunny_free(tmp);
   return (res);
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 05:30:04 2015 Antoine Baché
-** Last update Tue Dec 22 16:00:04 2015 Antoine Baché
+** Last update Wed Dec 23 09:46:17 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -102,5 +102,6 @@ int	start_multiplayer(t_main_menu *data)
     return (1);
   if (check_map(data) == 1 || check_pos_distant(data) == 1)
     return (1);
+  bunny_delete_ini(data->file);
   return (0);
 }
