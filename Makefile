@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Wed Dec 23 19:24:25 2015 Antoine Baché
+## Last update Wed Dec 23 23:52:28 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -51,7 +51,7 @@ NAME=		wolf3d
 
 HEAD=		-Iinclude
 
-CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic -g
+CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic
 
 CC=		@gcc
 

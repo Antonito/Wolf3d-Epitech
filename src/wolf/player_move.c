@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 19 03:43:23 2015 Antoine Baché
-** Last update Wed Dec 23 22:00:11 2015 Antoine Baché
+** Last update Wed Dec 23 23:46:03 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -34,24 +34,22 @@ int		check_collision_x(t_main_menu *data, char select)
   return (0);
 }
 
+void	move_player_next(t_main_menu *data, double vec)
+{
+  if (check_collision_x(data, (int)vec)== 0)
+    data->player.posx -= vec * 0.05 * cos((data->player.angle * M_PI) / 180);
+  if (check_collision_y(data, (int)vec) == 0)
+    data->player.posy -= vec * 0.05 * sin((data->player.angle * M_PI) / 180);
+}
+
 void	move_player(t_bunny_keysym key, t_main_menu *data)
 {
   if (key == BKS_DOWN && data->map_size.height > (int)data->player.posy &&
       data->map_size.width > (int)data->player.posx)
-    {
-      if (check_collision_x(data, 1) == 0)
-	data->player.posx -= 0.05 * cos((data->player.angle * M_PI) / 180);
-      if (check_collision_y(data, 1) == 0)
-	data->player.posy -= 0.05 * sin((data->player.angle * M_PI) / 180);
-    }
+    move_player_next(data, 1);
   else if (key == BKS_UP && 0 < (int)data->player.posy &&
 	   0 < (int)data->player.posx)
-    {
-      if (check_collision_x(data, -1) == 0)
-	data->player.posx += 0.05 * cos((data->player.angle * M_PI) / 180);
-      if (check_collision_y(data, -1) == 0)
-	data->player.posy += 0.05 * sin((data->player.angle * M_PI) / 180);
-    }
+    move_player_next(data, -1);
 }
 
 void	rotate_player(t_bunny_keysym key, t_main_menu *data)
