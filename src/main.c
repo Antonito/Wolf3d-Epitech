@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Wed Dec 23 19:13:43 2015 Antoine Baché
+** Last update Wed Dec 23 21:39:41 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -77,7 +77,7 @@ int		start_game(int ac, char **av)
 
 int		main(int ac, char **av, char **env)
 {
-  if (*env == NULL)
+  if (*env == NULL || env == NULL)
     return (1);
   if (ac > 5 || ac < 2)
     return (usage_message());
