@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Wed Dec 23 12:02:33 2015 Antoine Baché
+## Last update Wed Dec 23 19:24:25 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -53,7 +53,7 @@ HEAD=		-Iinclude
 
 CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic -g
 
-CC=		gcc
+CC=		@gcc
 
 RM=		rm -f
 
@@ -71,15 +71,24 @@ LIB=		-L/usr/local/lib		\
 OBJ=		$(SRC:.c=.o)
 
 $(NAME):	$(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+		@echo -n "Compiling ..."
+		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+		@tput setaf 2;tput bold;echo "			OK"
+		@tput sgr0
 
 all:		$(NAME)
 
 clean:
-		$(RM) $(OBJ)
+		@echo -n "Removing OBJ files ..."
+		@$(RM) $(OBJ)
+		@tput setaf 2;tput bold;echo "		OK"
+		@tput sgr0
 
 fclean:		clean
-		$(RM) $(NAME)
+		@echo -n "Deleting" $(NAME) "..."
+		@$(RM) $(NAME)
+		@tput setaf 2;tput bold;echo "		OK"
+		@tput sgr0
 
 re:	fclean all
 
