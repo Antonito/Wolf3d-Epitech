@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Tue Dec 22 03:28:01 2015 Antoine Baché
+## Last update Wed Dec 23 12:02:33 2015 Antoine Baché
 ##
 
 SRC=		src/main.c			\
@@ -14,7 +14,6 @@ SRC=		src/main.c			\
 		src/prepare_struct.c		\
 		src/my_strcmp.c			\
 		src/wolf/wolf.c			\
-		src/wolf/minimap.c		\
 		src/wolf/check_ini.c		\
 		src/wolf/check_pos.c		\
 		src/wolf/load_ini.c		\
@@ -23,6 +22,7 @@ SRC=		src/main.c			\
 		src/wolf/my_getdouble.c		\
 		src/wolf/check_wall.c		\
 		src/wolf/player_move.c		\
+		src/minimap/minimap.c		\
 		src/menu/pause_menu.c		\
 		src/menu/pause_menu_draw.c	\
 		src/menu/pause_menu_actions.c	\

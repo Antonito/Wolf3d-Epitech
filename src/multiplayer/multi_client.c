@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 20 19:17:34 2015 Antoine Baché
-** Last update Tue Dec 22 23:32:46 2015 Antoine Baché
+** Last update Wed Dec 23 12:48:35 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -72,23 +72,7 @@ int	client_distant_player(t_main_menu *data)
 
 void	set_client_position(t_main_menu *data)
 {
-  int	i;
-  int	j;
-
   data->player.posx = data->map_size.height - data->player2.posx - 1;
   data->player.posy = ABS(data->map_size.width - data->player2.posy - 1);
   data->player.angle = 180 + data->player2.angle;
-  i = (int)data->player.posx;
-  j = (int)data->player.posy;
-  while (data->map[i][j] == 1)
-    {
-      j++;
-      if (data->map[i][j] == 0)
-	break;
-      if (j == data->map_size.width - 1)
-	{
-	  j = 1;
-	  i++;
-	}
-    }
 }

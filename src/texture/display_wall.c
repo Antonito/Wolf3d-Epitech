@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Tue Dec 22 00:24:43 2015 Antoine Baché
-** Last update Wed Dec 23 00:08:49 2015 Antoine Baché
+** Last update Wed Dec 23 10:59:58 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -38,8 +38,8 @@ void		display_texture_wall(t_main_menu *data, double k,
   while (start < end && start >= 0 && end < WIN_X * WIN_Y)
     {
       colors[start].full =
-	data->texture[0]->picture[(int)(WIN_Y * (hit->y - (int)hit->y)) % 64]
-	[j % 64];
+	data->texture[0]->picture[(int)(WIN_X + 256 * (hit->y - (int)hit->y)) % 256]
+	[WIN_X % 256];
       start += WIN_X;
       j++;
     }

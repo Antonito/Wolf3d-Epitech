@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Wed Dec 23 09:27:02 2015 Antoine Baché
+** Last update Wed Dec 23 12:42:12 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -335,6 +335,7 @@ int			socket_send_double(int, double);
 void			set_player_pos(t_main_menu *);
 int			serv_distant_player(t_main_menu *);
 void			set_client_position(t_main_menu *);
+void			set_client_position_lower(t_main_menu *, int, int);
 int			check_pos_distant(t_main_menu *);
 void			free_texture(t_texture *);
 void			set_max_heap_size(size_t);
