@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Wed Dec 23 15:49:30 2015 Antoine Baché
+** Last update Wed Dec 23 16:21:17 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -30,7 +30,7 @@
 # define ERROR_MAIN_WIN free_on_winerror(menu)
 # define ERROR_MAIN_PIX free_on_pixerror(menu)
 # define ERROR_MAIN_MUSIC free_on_musicerror(menu)
-# define ABS(x) ((x < 0) ? -x : x)
+# define ABS(X) (((X) < 0) ? -(X) : (X))
 
 # include <sys/socket.h>
 # include <netdb.h>
@@ -159,7 +159,7 @@ void			option_menu_texture_disp(t_main_menu *);
 int			pause_menu_texture(t_main_menu *);
 void			pause_menu_texture_disp(t_main_menu *);
 int			game_texture(t_main_menu *);
-void			display_texture_wall(t_main_menu *, double, int,
+void			display_texture_wall(t_main_menu *, int, int,
 					     t_vector *);
 int			bmp_error(void);
 int			prepare_texture(t_main_menu *);
