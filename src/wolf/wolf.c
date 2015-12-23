@@ -5,16 +5,16 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Mon Dec 14 18:41:45 2015 Antoine Baché
-** Last update Wed Dec 23 09:39:28 2015 Antoine Baché
+** Last update Wed Dec 23 17:47:49 2015 Antoine Baché
 */
 
 #include "my.h"
 
-t_bunny_response	key_wolf(t_bunny_event_state state,
+t_bunny_response	key_wolf(UNUSED t_bunny_event_state state,
 				 UNUSED t_bunny_keysym key,
-				 t_main_menu *data)
+				 UNUSED t_main_menu *data)
 {
-  const bool   		*keys;
+  const bool		*keys;
   int			save;
 
   if (state == GO_DOWN)
@@ -40,7 +40,8 @@ t_bunny_response	wolfloop(t_main_menu *data)
   if (data->game_mode != 0)
     calc_pos_player(data);
   display_wolf(data);
-  display_minimap(data);
+  if (data->map_size.width == 10 && data->map_size.height == 10)
+    display_minimap(data);
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);

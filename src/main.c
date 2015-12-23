@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Wed Dec 23 16:33:39 2015 Antoine Baché
+** Last update Wed Dec 23 17:03:00 2015 Antoine Baché
 */
 
 #include "my.h"
@@ -60,12 +60,10 @@ int	main_menu(t_main_menu *menu)
   return (0);
 }
 
-int		main(int ac, char **av, char **env)
+int		start_game(int ac, char **av)
 {
   t_main_menu	*data;
 
-  if (*env == NULL || ac > 5 || ac < 2)
-    return (usage_message());
   if ((data = prepare_main()) == NULL)
     return (1);
   if (ac >= 2 && (data->game_mode = parse_args(ac, av, &data->infos)) == 1)
@@ -73,6 +71,17 @@ int		main(int ac, char **av, char **env)
   if (data->game_mode != 0 && start_multiplayer(data) == 1)
     return (1);
   if (main_menu(data) == 1)
+    return (1);
+  return (0);
+}
+
+int		main(int ac, char **av, char **env)
+{
+  if (*env == NULL)
+    return (1);
+  if (ac > 5 || ac < 2)
+    return (usage_message());
+  if (start_game(ac, av) == 1)
     return (1);
   return (0);
 }

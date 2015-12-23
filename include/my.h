@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 00:35:38 2015 Antoine Baché
-** Last update Wed Dec 23 16:38:13 2015 Antoine Baché
+** Last update Wed Dec 23 17:43:03 2015 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -173,6 +173,7 @@ void			loop_texture(t_main_menu *, int);
 t_bunny_response	key(t_bunny_event_state, t_bunny_keysym, t_main_menu *);
 t_bunny_response	mainMenuLoop(t_main_menu *);
 int			main_menu(t_main_menu *);
+int			start_game(int, char **);
 
 /*
 ** Free on errors main (free_main.c)
@@ -292,6 +293,7 @@ void			move_player(t_bunny_keysym, t_main_menu *);
 int			check_collision(t_main_menu *, char);
 int			check_collision_x(t_main_menu *, char);
 int			check_collision_y(t_main_menu *, char);
+int			events(t_main_menu *);
 
 /*
 ** Server
