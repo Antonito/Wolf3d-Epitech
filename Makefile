@@ -5,8 +5,10 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Mon Nov  2 12:00:40 2015 Antoine Baché
-## Last update Wed Dec 23 23:52:28 2015 Antoine Baché
+## Last update Fri Dec 25 15:33:37 2015 Antoine Baché
 ##
+
+DEBUG=		no
 
 SRC=		src/main.c			\
 		src/free_main.c			\
@@ -51,9 +53,13 @@ NAME=		wolf3d
 
 HEAD=		-Iinclude
 
-CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic
+ifeq ($(DEBUG), yes)
+		CFLAGS=		$(HEAD) -W -Wall -ansi -pedantic -g
+else
+		CFLAGS=		$(HEAD) -W -Wall -Werror -ansi -pedantic
+endif
 
-CC=		@gcc
+CC=		gcc
 
 RM=		rm -f
 
@@ -71,24 +77,38 @@ LIB=		-L/usr/local/lib		\
 OBJ=		$(SRC:.c=.o)
 
 $(NAME):	$(OBJ)
-		@echo -n "Compiling ..."
-		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
-		@tput setaf 2;tput bold;echo "			OK"
-		@tput sgr0
+ifeq ($(DEBUG), yes)
+	@tput setaf 1; tput bold
+	@echo "  ____  _____ ____  _   _  ____   __  __  ___  ____  _____ ";
+	@echo " |  _ \| ____| __ )| | | |/ ___| |  \/  |/ _ \|  _ \| ____|";
+	@echo " | | | |  _| |  _ \| | | | |  _  | |\/| | | | | | | |  _|  ";
+	@echo " | |_| | |___| |_) | |_| | |_| | | |  | | |_| | |_| | |___ ";
+	@echo " |____/|_____|____/ \___/ \____| |_|  |_|\___/|____/|_____|";
+	@echo "                                                           ";
+	@tput sgr0
+endif
+	@echo -n "Compiling ..."
+	@$(CC) $(OBJ) -o $(NAME) $(LIB)
+	@tput setaf 2; tput bold; echo "			OK"
+	@tput sgr0
 
-all:		$(NAME)
+
+%.o: %.c
+	@$(CC) -o $@ -c $< $(CFLAGS)
+
+all:	$(NAME)
 
 clean:
-		@echo -n "Removing OBJ files ..."
-		@$(RM) $(OBJ)
-		@tput setaf 2;tput bold;echo "		OK"
-		@tput sgr0
+	@echo -n "Removing OBJ files ..."
+	@$(RM) $(OBJ)
+	@tput setaf 2; tput bold; echo "		OK"
+	@tput sgr0
 
-fclean:		clean
-		@echo -n "Deleting" $(NAME) "..."
-		@$(RM) $(NAME)
-		@tput setaf 2;tput bold;echo "		OK"
-		@tput sgr0
+fclean:	clean
+	@echo -n "Deleting" $(NAME) "..."
+	@$(RM) $(NAME)
+	@tput setaf 2; tput bold; echo "		OK"
+	@tput sgr0
 
 re:	fclean all
 
