@@ -5,13 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Dec 13 10:35:00 2015 Antoine Baché
-** Last update Sun Dec 13 10:38:22 2015 Antoine Baché
+** Last update Wed Mar  2 20:27:02 2016 Antoine Baché
 */
 
 #include <lapin.h>
 #include <math.h>
 
-double		vercnorm(t_bunny_position *coord0, t_bunny_position *coord1)
+double		vecnorm(t_bunny_position *coord0, t_bunny_position *coord1)
 {
   double	norme;
 
