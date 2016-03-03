@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Dec 12 19:37:08 2015
-** Last update Wed Dec 23 23:48:53 2015 Antoine Baché
+** Last update Thu Mar  3 11:45:06 2016 Antoine Baché
 */
 
 #include "my.h"
@@ -40,7 +40,7 @@ t_bunny_response	mainMenuLoop(t_main_menu *menu)
 int	main_menu(t_main_menu *menu)
 {
   set_max_heap_size(20);
-  if ((menu->win = bunny_start(WIN_X, WIN_Y, 0, "Wolf3D")) == NULL)
+  if ((menu->win = bunny_start(WIN_X, WIN_Y, 1, "Wolf3D")) == NULL)
     return (ERROR_MAIN_WIN);
   else if ((menu->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) == NULL)
     return (ERROR_MAIN_PIX);
